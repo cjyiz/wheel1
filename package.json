@@ -1,0 +1,22 @@
+{
+  "name": "gulu",
+  "version": "1.0.0",
+  "description": "parcel",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cjyiz/wheel1.git"
+  },
+  "keywords": [
+    "vue-ui"
+  ],
+  "author": "cjyiz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cjyiz/wheel1/issues"
+  },
+  "homepage": "https://github.com/cjyiz/wheel1#readme"
+}
