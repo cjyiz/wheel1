@@ -20,12 +20,14 @@
   },
   "homepage": "https://github.com/cjyiz/wheel1#readme",
   "dependencies": {
+    "scss": "^0.2.4",
     "vue": "^2.6.10",
     "vue-hot-reload-api": "^2.3.3"
   },
   "devDependencies": {
     "@vue/component-compiler-utils": "^3.0.0",
     "parcel-bundler": "^1.12.3",
+    "sass": "^1.20.1",
     "vue-template-compiler": "^2.6.10"
   },
   "alias": {

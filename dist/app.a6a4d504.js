@@ -12420,8 +12420,15 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 var _default = {
-  props: ['icon']
+  props: ["icon", "iconPosition"]
 };
 exports.default = _default;
         var $3ba049 = exports.default || module.exports;
@@ -12433,20 +12440,25 @@ exports.default = _default;
         /* template */
         Object.assign($3ba049, (function () {
           var render = function() {
+  var _obj
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
     "button",
-    { staticClass: "button" },
+    {
+      staticClass: "button",
+      class: ((_obj = {}), (_obj["icon-" + _vm.iconPosition] = true), _obj)
+    },
     [
-      _c("svg", { staticClass: "icon", attrs: { "aria-hidden": "true" } }, [
-        _c("use", { attrs: { "xlink:href": "#i-" + _vm.icon } })
-      ]),
+      _c("div", { staticClass: "content" }, [_vm._t("default")], 2),
       _vm._v(" "),
-      _vm._t("default")
-    ],
-    2
+      _vm.icon
+        ? _c("svg", { staticClass: "icon" }, [
+            _c("use", { attrs: { "xlink:href": "#i-" + _vm.icon } })
+          ])
+        : _vm._e()
+    ]
   )
 }
 var staticRenderFns = []
@@ -12525,7 +12537,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49872" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57634" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
