@@ -4,7 +4,8 @@
       <button class='button' :class="{left:true}"></button>
       <button class='button' :class="{right:true}"></button>
     等价于上面的一行代码-->
-    <g-icon v-if='icon' :name='icon' ></g-icon>
+    <g-icon class='loading' name='loading'></g-icon>
+    <g-icon class='icon' v-if='icon' :name='icon' ></g-icon>
     <div class="content">
       <slot></slot>
     </div>
@@ -27,6 +28,17 @@ export default {
 }
 </script>
 <style lang='scss'>
+@keyframes spin {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+.loading{
+  animation: spin 1s infinite linear;
+}
 .g-button {
   display: inline-flex;
   justify-content: center;
