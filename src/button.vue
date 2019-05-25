@@ -1,26 +1,33 @@
 <template>
-  <button class="button" :class="{[`icon-${iconPosition}`]: true}">
+  <button class="g-button" :class="{[`icon-${iconPosition}`]: true}">
     <!-- <button class='button' :class="{undefined:true}"></button>
       <button class='button' :class="{left:true}"></button>
       <button class='button' :class="{right:true}"></button>
     等价于上面的一行代码-->
+    <g-icon v-if='icon' :name='icon' ></g-icon>
     <div class="content">
       <slot></slot>
     </div>
-    <svg class="icon" v-if="icon">
-      <!-- 使用v-bind绑定样式 -->
-      <!-- 下面的写法绑定属性 -->
-      <use :xlink:href="`#i-${icon}`"></use>
-    </svg>
+    
   </button>
 </template>
 <script>
 export default {
-  props: ["icon", "iconPosition"]
-};
+  props: {
+    icon:{},
+    iconPosition:{
+      type:String,
+      default:'left',
+      // 属性检查器
+      validator(value){
+        return value == "left" || value =="right"
+      }
+    }
+  }
+}
 </script>
 <style lang='scss'>
-.button {
+.g-button {
   display: inline-flex;
   justify-content: center;
   align-items: center;
@@ -28,9 +35,9 @@ export default {
   > .content {
     order: 2;
   }
-  > .icon {
-    order: 1;
-    margin-right: 0.3em;
+  > .icon{
+    order:1;
+    margin-right: .1em
   }
   &.icon-right {
     > .icon {
