@@ -17,6 +17,8 @@ new Vue({
 
 // 单元测试
 import  chai from 'chai'
+import spies from 'chai-spies'
+chai.use(spies)
 const expect=chai.expect
 // 一个单元测试用例
 {
@@ -98,24 +100,22 @@ const expect=chai.expect
 
 {
   // mock测试用例
+  // 使用chai-spies监听函数
   const div=document.createElement('div')
   document.body.appendChild(div)
   const Constructor = Vue.extend(Button)
-  const gButton=new Constructor(
+  const vm=new Constructor(
     {
       propsData:{
-        icon:'shezhi',
-        iconPosition:'right'
+        icon:'shezhi'
       }
     }
   )
-  gButton.$mount(div)
-  gButton.$on('click',function(){
-    console.log(1)
-  })
-  let button =gButton.$el
- 
+  vm.$mount(div)
+  let spy=chai.spy(function(){})
+  vm.$on('click',spy)
+  // 希望这个函数被执行
+  let button =vm.$el
   button.click()
-  button.$el.remove()
-  button.$destroy()
+  expect(spy).to.have.been.called()
 }

@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/cjyiz/wheel1#readme",
   "dependencies": {
+    "chai-spies": "^1.0.0",
     "scss": "^0.2.4",
     "vue": "^2.6.10",
     "vue-hot-reload-api": "^2.3.3"
