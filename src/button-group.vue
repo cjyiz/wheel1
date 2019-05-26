@@ -13,7 +13,7 @@ export default {
             if( name !=='button'){
                 console.warn(`g-button-group的子元素应该全是button,但是你写的是${name}`)
             }
-            console.log(node)
+            // console.log(node)
         }
     }
 };
