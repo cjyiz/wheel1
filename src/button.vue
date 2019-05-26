@@ -1,6 +1,7 @@
 <template>
   <button class="g-button" :class="{[`icon-${iconPosition}`]: true}"
   @click="$emit('click')">
+  <!--  -->
   <!-- 模版里不需要this. -->
     <!-- <button class='button' :class="{undefined:true}"></button>
       <button class='button' :class="{left:true}"></button>
