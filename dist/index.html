@@ -17,13 +17,13 @@
 
 <body>
     <div id="app">
-            <g-button> 
+            <g-button :loading="loading1" @click="loading1 = !loading1">
                     没有图标
                 </g-button>
         <g-button icon="shezhi">
             parcel版轮子
         </g-button>
-        <g-button icon="shezhi" icon-position="right"> 
+        <g-button icon="shezhi" icon-position="right" :loading="true">
             右边图标
         </g-button>
     </div>

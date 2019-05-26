@@ -1,42 +1,47 @@
 <template>
-  <button class="g-button" :class="{[`icon-${iconPosition}`]: true}">
+  <button class="g-button" :class="{[`icon-${iconPosition}`]: true}"
+  @click="$emit('click')">
+  <!-- 模版里不需要this. -->
     <!-- <button class='button' :class="{undefined:true}"></button>
       <button class='button' :class="{left:true}"></button>
       <button class='button' :class="{right:true}"></button>
     等价于上面的一行代码-->
-    <g-icon class='loading' name='loading'></g-icon>
-    <g-icon class='icon' v-if='icon' :name='icon' ></g-icon>
+    <g-icon class="loading icon" v-if='loading' name="loading"></g-icon>
+    <g-icon class="icon"  :name="icon" v-if='icon && !loading'></g-icon>
     <div class="content">
       <slot></slot>
     </div>
-    
   </button>
 </template>
 <script>
 export default {
   props: {
-    icon:{},
-    iconPosition:{
-      type:String,
-      default:'left',
+    icon: {},
+    loading:{
+      type:Boolean,
+      default:false
+    },
+    iconPosition: {
+      type: String,
+      default: "left",
       // 属性检查器
-      validator(value){
-        return value == "left" || value =="right"
+      validator(value) {
+        return value === "left" || value === "right";
       }
     }
   }
-}
+};
 </script>
 <style lang='scss'>
 @keyframes spin {
-  0%{
+  0% {
     transform: rotate(0deg);
   }
-  100%{
+  100% {
     transform: rotate(360deg);
   }
 }
-.loading{
+.loading {
   animation: spin 1s infinite linear;
 }
 .g-button {
@@ -47,9 +52,9 @@ export default {
   > .content {
     order: 2;
   }
-  > .icon{
-    order:1;
-    margin-right: .1em
+  > .icon {
+    order: 1;
+    margin-right: 0.1em;
   }
   &.icon-right {
     > .icon {
@@ -57,7 +62,7 @@ export default {
       margin-left: 0.3em;
       margin-right: 0;
     }
-    > content {
+    > .content {
       order: 1;
     }
   }
