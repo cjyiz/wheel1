@@ -45,10 +45,25 @@ export default {
   animation: spin 1s infinite linear;
 }
 .g-button {
+  font-size:var(--font-size);
+  height: var(--button-height);
+  padding:0.3em  1em;
+  border-radius: var(--border-radius);
+  border:1px solid var(--border-color);
+  vertical-align: middle;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding: 0.3em 1em;
+  background-color: var(--button-bg);
+  &:hover{
+    border-color:var(--border-color-hover)
+  }
+  &:active{
+    background-color:var(--button-active-bg)
+  }
+  &:focus{
+    outline:none;
+  }
   > .content {
     order: 2;
   }
