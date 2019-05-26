@@ -6,30 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <style>.icon {
-            width: 1em;
-            height: 1em;
-            vertical-align: -0.15em;
-            fill: currentColor;
-            overflow: hidden;
+    <style>* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            --button-height: 32px;
+            --font-size: 14px;
+            --button-bg: white;
+            --border-radius: 4px;
+            --color: #333;
+            --border-color: #999;
+            --border-color-hover: red;
+        }
+
+        #app {
+            margin: 20px;
+        }
+
+        body {
+            font-size: var(--font-size)
         }</style>
 <link rel="stylesheet" href="/app.a6a4d504.css"></head>
 
 <body>
     <div id="app">
-            <g-button :loading="loading1" @click="loading1 = !loading1">
-                    没有图标
-                </g-button>
+        <g-button :loading="loading1" @click="loading1 = !loading1">
+            没有图标
+        </g-button>
         <g-button icon="shezhi">
             parcel版轮子
         </g-button>
-        <g-button icon="shezhi" icon-position="right" :loading="true">
+        <g-button icon="shezhi" icon-position="right">
             右边图标
         </g-button>
+        <g-button-group>
+            <g-button icon="left">上一页</g-button>
+            <g-button>更多</g-button>
+            <g-button icon="right" icon-position="right">下一页</g-button>
+        </g-button-group>
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="/app.a6a4d504.js"></script>
-<script src="//at.alicdn.com/t/font_1093904_nvy1j3gdyjs.js"></script>
+<script src="//at.alicdn.com/t/font_1093904_s0n6za4zrdd.js"></script>
 
 </html>
