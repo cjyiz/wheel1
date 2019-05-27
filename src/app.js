@@ -15,7 +15,7 @@ new Vue({
   }
 })
 
-// // 单元测试
+// // 单元测试,用{}作用域隔离 ，然后断言expect
 // import  chai from 'chai'
 // import spies from 'chai-spies'
 // chai.use(spies)
