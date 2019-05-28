@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <style type="text/css">
-        * {
+    <style>* {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -29,32 +28,31 @@
 
         body {
             font-size: var(--font-size)
-        }
-    </style>
-</head>
+        }</style>
+<link rel="stylesheet" href="/app.a6a4d504.css"></head>
 
 <body>
-    <div id='app'>
-        <g-button :loading=loading1 @click='loading1 = !loading1'>
+    <div id="app">
+        <g-button :loading="loading1" @click="loading1 = !loading1">
             没有图标
         </g-button>
-        <g-button icon='shezhi' :loading=loading2  @click='loading2 = !loading2'>
+        <g-button icon="shezhi" :loading="loading2" @click="loading2 = !loading2">
             parcel版轮子
         </g-button>
-        <g-button icon='shezhi' :loading=loading3 icon-position='right' @click='loading3 = !loading3'>
+        <g-button icon="shezhi" :loading="loading3" icon-position="right" @click="loading3 = !loading3">
             右边图标
         </g-button>
         <g-button-group>
-            <g-button icon='left'>上一页</g-button>
+            <g-button icon="left">上一页</g-button>
             <g-button>更多</g-button>
-            <g-button icon='right' icon-position='right'>下一页</g-button>
+            <g-button icon="right" icon-position="right">下一页</g-button>
         </g-button-group>
-        <div id='test'></div>
-        <div id='test2'></div>
+        <div id="test"></div>
+        <div id="test2"></div>
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script src='./src/app.js'></script>
+<script src="/app.a6a4d504.js"></script>
 <!-- <script src='//at.alicdn.com/t/font_1093904_s0n6za4zrdd.js'></script> -->
 
 </html>
