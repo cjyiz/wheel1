@@ -1,10 +1,10 @@
 {
   "name": "gulu-cjyiz",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "parcel",
   "main": "index.js",
   "scripts": {
-    "start":"npx parcel index.html --no-cache",
+    "start": "npx parcel index.html --no-cache",
     "dev-test": "parcel watch test/* --no-cache & karma start",
     "test": "parcel build test/* --no-minify && karma start --single-run"
   },
