@@ -5,6 +5,7 @@
 </template>
 <script>
 export default {
+    name:'GuluButtonGroup',
     mounted(){
         // console.log(this.$el.children)
         // 打印出div元素
