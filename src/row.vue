@@ -1,33 +1,39 @@
 <template>
-    <div class='row' :style="{marginLeft:-gutter/2+'px',marginRight:-gutter/2+'px'}">
-        <slot></slot>
-    </div>
+  <div class="row" :style="rowStyle">
+    <slot></slot>
+  </div>
 </template>
 <script>
 export default {
-    name:'GuluRow',
-    props:{
-        gutter:{
-            type:[Number,String]
-        }
-    },
-    data(){
-return {}
-    },
-    created(){
-        console.log('row created')
-    },
-    mounted(){
-       this.$children.forEach((vm)=>{
-           vm.gutter=this.gutter
-       })
+  name: "GuluRow",
+  props: {
+    gutter: {
+      type: [Number, String]
     }
-}
+  },
+  data() {
+    return {};
+  },
+  computed: {
+    rowStyle() {
+      let { gutter } = this;
+      return {
+        marginLeft: -gutter / 2 + "px",
+        marginRight: -gutter / 2 + "px"
+      };
+    }
+  },
+  mounted() {
+    this.$children.forEach(vm => {
+      vm.gutter = this.gutter;
+    });
+  }
+};
 </script>
 
 <style scoped lang='scss'>
-    .row{
-        display: flex;
-    }
+.row {
+  display: flex;
+}
 </style>
 

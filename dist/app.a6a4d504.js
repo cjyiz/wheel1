@@ -12915,16 +12915,23 @@ var _default = {
       type: [Number, String]
     }
   },
+  computed: {
+    colStyle: function colStyle() {
+      return {
+        paddingLeft: this.gutter / 2 + 'px',
+        paddingRight: this.gutter / 2 + 'px'
+      };
+    },
+    colClass: function colClass() {
+      var span = this.span,
+          offset = this.offset;
+      return [span && "col-".concat(span), offset && "offset-".concat(offset)];
+    }
+  },
   data: function data() {
     return {
       gutter: 0
     };
-  },
-  created: function created() {
-    console.log("row created");
-  },
-  mounted: function mounted() {
-    console.log("row mounted");
   }
 };
 exports.default = _default;
@@ -12942,17 +12949,7 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      staticClass: "col",
-      class: [
-        _vm.span && "col-" + _vm.span,
-        _vm.offset && "offset-" + _vm.offset
-      ],
-      style: {
-        paddingLeft: _vm.gutter / 2 + "px",
-        paddingRight: _vm.gutter / 2 + "px"
-      }
-    },
+    { staticClass: "col", class: _vm.colClass, style: _vm.colStyle },
     [
       _c(
         "div",
@@ -13009,7 +13006,7 @@ exports.default = void 0;
 //
 //
 var _default = {
-  name: 'GuluRow',
+  name: "GuluRow",
   props: {
     gutter: {
       type: [Number, String]
@@ -13018,8 +13015,14 @@ var _default = {
   data: function data() {
     return {};
   },
-  created: function created() {
-    console.log('row created');
+  computed: {
+    rowStyle: function rowStyle() {
+      var gutter = this.gutter;
+      return {
+        marginLeft: -gutter / 2 + "px",
+        marginRight: -gutter / 2 + "px"
+      };
+    }
   },
   mounted: function mounted() {
     var _this = this;
@@ -13044,13 +13047,7 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      staticClass: "row",
-      style: {
-        marginLeft: -_vm.gutter / 2 + "px",
-        marginRight: -_vm.gutter / 2 + "px"
-      }
-    },
+    { staticClass: "row", style: _vm.rowStyle },
     [_vm._t("default")],
     2
   )
