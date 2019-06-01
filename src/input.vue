@@ -1,7 +1,13 @@
 <template>
     <div class='wrapper' :class="{error}">
         <input :value='value' type="text" 
-        :disabled='disabled' :readonly='readonly' :error='error'>
+        :disabled='disabled' :readonly='readonly' 
+        @change="$emit('change',$event)"
+        @input="$emit('input',$event)"
+        @focus="$emit('focus',$event)"
+        @blur="$emit('blur',$event)">
+        <!-- 上面的$event是传值的。emit第一个参数是事件名，第二个参数是传的值，第三个参数是传的值 -->
+
         <template v-if='error'>
             <icon name='error' class='icon-error'></icon>
             <span class='error-message'>{{error}}</span>    

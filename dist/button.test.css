@@ -1,0 +1,52 @@
+.g-icon {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.3em;
+}
+@keyframes spin-data-v-9ecba8 {
+0% {
+    transform: rotate(0deg);
+}
+100% {
+    transform: rotate(360deg);
+}
+}
+.loading[data-v-9ecba8] {
+  animation: spin-data-v-9ecba8 1s infinite linear;
+}
+.g-button[data-v-9ecba8] {
+  font-size: var(--font-size);
+  height: var(--button-height);
+  padding: 0.3em 1em;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  vertical-align: middle;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--button-bg);
+}
+.g-button[data-v-9ecba8]:hover {
+  border-color: var(--border-color-hover);
+}
+.g-button[data-v-9ecba8]:active {
+  background-color: var(--button-active-bg);
+}
+.g-button[data-v-9ecba8]:focus {
+  outline: none;
+}
+.g-button > .content[data-v-9ecba8] {
+  order: 2;
+}
+.g-button > .icon[data-v-9ecba8] {
+  order: 1;
+  margin-right: 0.1em;
+}
+.g-button.icon-right > .icon[data-v-9ecba8] {
+  order: 2;
+  margin-left: 0.3em;
+  margin-right: 0;
+}
+.g-button.icon-right > .content[data-v-9ecba8] {
+  order: 1;
+}

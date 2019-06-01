@@ -4,8 +4,12 @@
   </div>
 </template>
 <script>
+import Icon from './icon.vue'
 export default {
     name:'GuluButtonGroup',
+    components:{
+      'g-icon':Icon
+    },
     mounted(){
         // console.log(this.$el.children)
         // 打印出div元素

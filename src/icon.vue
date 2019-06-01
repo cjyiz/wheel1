@@ -8,7 +8,8 @@
 <script>
 import './svg.js'
 export default {
-    props:['name']
+  name:'GUluIcon',
+  props:['name']
 }
 </script>
 <style lang='scss'>

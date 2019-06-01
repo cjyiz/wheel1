@@ -12473,17 +12473,18 @@ require("./svg.js");
 //
 //
 var _default = {
+  name: 'GUluIcon',
   props: ['name']
 };
 exports.default = _default;
-        var $cbec4d = exports.default || module.exports;
+        var $a083a1 = exports.default || module.exports;
       
-      if (typeof $cbec4d === 'function') {
-        $cbec4d = $cbec4d.options;
+      if (typeof $a083a1 === 'function') {
+        $a083a1 = $a083a1.options;
       }
     
         /* template */
-        Object.assign($cbec4d, (function () {
+        Object.assign($a083a1, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -12512,9 +12513,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$cbec4d', $cbec4d);
+            api.createRecord('$a083a1', $a083a1);
           } else {
-            api.reload('$cbec4d', $cbec4d);
+            api.reload('$a083a1', $a083a1);
           }
         }
 
@@ -12533,7 +12534,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _icon = _interopRequireDefault(require("./icon"));
+var _icon = _interopRequireDefault(require("./icon.vue"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12555,6 +12556,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 var _default = {
   name: 'GuluButton',
+  components: {
+    'g-icon': _icon.default
+  },
   props: {
     icon: {},
     loading: {
@@ -12572,14 +12576,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $3ba049 = exports.default || module.exports;
+        var $9ecba8 = exports.default || module.exports;
       
-      if (typeof $3ba049 === 'function') {
-        $3ba049 = $3ba049.options;
+      if (typeof $9ecba8 === 'function') {
+        $9ecba8 = $9ecba8.options;
       }
     
         /* template */
-        Object.assign($3ba049, (function () {
+        Object.assign($9ecba8, (function () {
           var render = function() {
   var _obj
   var _vm = this
@@ -12620,7 +12624,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-3ba049",
+            _scopeId: "data-v-9ecba8",
             functional: undefined
           };
         })());
@@ -12633,9 +12637,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$3ba049', $3ba049);
+            api.createRecord('$9ecba8', $9ecba8);
           } else {
-            api.reload('$3ba049', $3ba049);
+            api.reload('$9ecba8', $9ecba8);
           }
         }
 
@@ -12646,13 +12650,18 @@ render._withStripped = true
       
       }
     })();
-},{"./icon":"src/icon.vue","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/button-group.vue":[function(require,module,exports) {
+},{"./icon.vue":"src/icon.vue","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/button-group.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+
+var _icon = _interopRequireDefault(require("./icon.vue"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 //
 //
 //
@@ -12660,6 +12669,9 @@ exports.default = void 0;
 //
 var _default = {
   name: 'GuluButtonGroup',
+  components: {
+    'g-icon': _icon.default
+  },
   mounted: function mounted() {
     // console.log(this.$el.children)
     // 打印出div元素
@@ -12694,14 +12706,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $270003 = exports.default || module.exports;
+        var $0eb51a = exports.default || module.exports;
       
-      if (typeof $270003 === 'function') {
-        $270003 = $270003.options;
+      if (typeof $0eb51a === 'function') {
+        $0eb51a = $0eb51a.options;
       }
     
         /* template */
-        Object.assign($270003, (function () {
+        Object.assign($0eb51a, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -12728,9 +12740,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$270003', $270003);
+            api.createRecord('$0eb51a', $0eb51a);
           } else {
-            api.reload('$270003', $270003);
+            api.reload('$0eb51a', $0eb51a);
           }
         }
 
@@ -12741,7 +12753,7 @@ render._withStripped = true
       
       }
     })();
-},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/input.vue":[function(require,module,exports) {
+},{"./icon.vue":"src/icon.vue","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/input.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -12753,6 +12765,12 @@ var _icon = _interopRequireDefault(require("./icon"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -12787,14 +12805,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $94b3a7 = exports.default || module.exports;
+        var $a97f72 = exports.default || module.exports;
       
-      if (typeof $94b3a7 === 'function') {
-        $94b3a7 = $94b3a7.options;
+      if (typeof $a97f72 === 'function') {
+        $a97f72 = $a97f72.options;
       }
     
         /* template */
-        Object.assign($94b3a7, (function () {
+        Object.assign($a97f72, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -12804,13 +12822,22 @@ exports.default = _default;
     { staticClass: "wrapper", class: { error: _vm.error } },
     [
       _c("input", {
-        attrs: {
-          type: "text",
-          disabled: _vm.disabled,
-          readonly: _vm.readonly,
-          error: _vm.error
-        },
-        domProps: { value: _vm.value }
+        attrs: { type: "text", disabled: _vm.disabled, readonly: _vm.readonly },
+        domProps: { value: _vm.value },
+        on: {
+          change: function($event) {
+            return _vm.$emit("change", $event)
+          },
+          input: function($event) {
+            return _vm.$emit("input", $event)
+          },
+          focus: function($event) {
+            return _vm.$emit("focus", $event)
+          },
+          blur: function($event) {
+            return _vm.$emit("blur", $event)
+          }
+        }
       }),
       _vm._v(" "),
       _vm.error
@@ -12833,7 +12860,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-94b3a7",
+            _scopeId: "data-v-a97f72",
             functional: undefined
           };
         })());
@@ -12846,9 +12873,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$94b3a7', $94b3a7);
+            api.createRecord('$a97f72', $a97f72);
           } else {
-            api.reload('$94b3a7', $94b3a7);
+            api.reload('$a97f72', $a97f72);
           }
         }
 
@@ -12890,6 +12917,11 @@ new _vue.default({
     loading1: false,
     loading2: true,
     loading3: false
+  },
+  methods: {
+    inputChange: function inputChange(x, y) {
+      console.log(x);
+    }
   }
 }); // // 单元测试,用{}作用域隔离 ，然后断言expect
 // import  chai from 'chai'
@@ -13020,7 +13052,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57708" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52258" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
