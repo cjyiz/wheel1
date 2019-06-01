@@ -1,6 +1,6 @@
 {
   "name": "gulu-cjyiz",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "parcel",
   "main": "dist/index.js",
   "scripts": {
