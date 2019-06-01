@@ -39,8 +39,13 @@
 <body>
     <div id='app'>
         <div class='box'>
-            <g-input value='zhangyihe' :disabled='true'></g-input>
-            <g-input value='你好'></g-input>
+            <g-input value='zhangyihe' :disabled='true' >
+               
+            </g-input>
+            
+            <g-input value='你好' v-model='message'></g-input>
+            <!-- <p>{{message}}</p>
+            <button @click='message+=1'>+1</button> -->
             <g-input value='asd你好' :readonly='true'></g-input>
         </div> 
         <div class='box'><g-input value='王' error='姓名不能少于两个字'></g-input></div>
