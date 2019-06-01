@@ -20,6 +20,7 @@ export default {
     offset: {
       type: [Number, String]
     }
+    
   },
   computed:{
       colStyle(){

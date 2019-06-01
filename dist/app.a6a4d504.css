@@ -260,3 +260,12 @@
 .row[data-v-7d92b3] {
   display: flex;
 }
+.row.align-left[data-v-7d92b3] {
+  justify-content: flex-start;
+}
+.row.align-right[data-v-7d92b3] {
+  justify-content: flex-end;
+}
+.row.align-center[data-v-7d92b3] {
+  justify-content: center;
+}
