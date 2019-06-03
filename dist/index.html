@@ -29,36 +29,39 @@
         body {
             font-size: var(--font-size)
         }
-        .box{
+
+        .box {
             margin: 10px 20px;
         }</style>
 <link rel="stylesheet" href="/app.a6a4d504.css"></head>
 
 <body>
     <div id="app">
-       <g-row gutter="20">
-           <g-col span="2">1</g-col>    
-           <g-col span="22">2</g-col>  
-       </g-row>
-       <g-row gutter="20">
-            <g-col>1</g-col>    
-            <g-col>2</g-col> 
-            <g-col>1</g-col>    
-           <g-col>2</g-col> 
-       </g-row>  
-       <g-row>
-            <g-col span="2">1</g-col>    
+        <g-row gutter="20">
+            <g-col span="2">1</g-col>
+            <g-col span="22">2</g-col>
+        </g-row>
+        <g-row gutter="20">
+            <g-col>1</g-col>
+            <g-col>2</g-col>
+            <g-col>1</g-col>
+            <g-col>2</g-col>
+        </g-row>
+        <g-row>
+            <g-col span="2">1</g-col>
             <g-col span="20" offset="2">2
                 <g-row align="right">123</g-row>
-            </g-col>  
+            </g-col>
         </g-row>
         <div class="box">
             <g-input value="zhangyihe" :disabled="true">
             </g-input>
             <g-input value="你好" v-model="message"></g-input>
             <g-input value="asd你好" :readonly="true"></g-input>
-        </div> 
-        <div class="box"><g-input value="王" error="姓名不能少于两个字"></g-input></div>
+        </div>
+        <div class="box">
+            <g-input value="王" error="姓名不能少于两个字"></g-input>
+        </div>
         <div class="box">
             <g-button :loading="loading1" @click="loading1 = !loading1">
                 没有图标
