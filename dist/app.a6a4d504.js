@@ -13302,8 +13302,15 @@ exports.default = void 0;
 //
 //
 //
+//
 var _default = {
-  name: 'GuluSider'
+  name: 'GuluSider',
+  data: function data() {
+    return {
+      visible: true
+    };
+  },
+  methods: {}
 };
 exports.default = _default;
         var $883dd7 = exports.default || module.exports;
@@ -13318,7 +13325,28 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "sider" }, [_vm._t("default")], 2)
+  return _vm.visible
+    ? _c(
+        "div",
+        { staticClass: "sider" },
+        [
+          _vm._t("default"),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              on: {
+                click: function($event) {
+                  _vm.visible = false
+                }
+              }
+            },
+            [_vm._v("close")]
+          )
+        ],
+        2
+      )
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true

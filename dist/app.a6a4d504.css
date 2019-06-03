@@ -1008,3 +1008,11 @@
 .hasSider[data-v-982b14] {
   flex-direction: row;
 }
+.sider[data-v-883dd7] {
+  position: relative;
+}
+.sider > button[data-v-883dd7] {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
