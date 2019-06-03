@@ -2,7 +2,6 @@ const expect =chai.expect
 import Vue from 'vue'
 import Row from '../src/row'
 import Col from '../src/col'
-import { doesNotReject } from 'assert';
 Vue.config.productionTip=false
 Vue.config.devtools=false
 
@@ -45,6 +44,7 @@ describe('Row',()=>{
         }).$mount(div)
         const element =vm.$el
         expect(getComputedStyle(element).justifyContent).to.eq('flex-end')
+        div.remove()
         vm.$destroy()
     })
 

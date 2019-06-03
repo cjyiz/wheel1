@@ -12962,7 +12962,7 @@ var _default = {
       }
 
       if (obj.offset) {
-        array.push("offset-".concat(str).concat(obj.span));
+        array.push("offset-".concat(str).concat(obj.offset));
       }
 
       return array;
@@ -12978,7 +12978,8 @@ var _default = {
     colClass: function colClass() {
       var span = this.span,
           offset = this.offset,
-          ipadnarrowPc = this.ipadnarrowPc,
+          ipad = this.ipad,
+          narrowPc = this.narrowPc,
           pc = this.pc,
           widePc = this.widePc;
       var createClasses = this.createClasses;
