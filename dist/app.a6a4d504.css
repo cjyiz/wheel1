@@ -999,3 +999,12 @@
 .row.align-center[data-v-7d92b3] {
   justify-content: center;
 }
+.layout[data-v-982b14] {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid red;
+}
+.hasSider[data-v-982b14] {
+  flex-direction: row;
+}
