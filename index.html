@@ -19,6 +19,8 @@
             --button-bg: rgb(161, 124, 221);
             --border-radius: 4px;
             --color: #333;
+            --toast-height:40px;
+            --toast-bg:rgba(161, 124, 221,0.75);
             --border-color: ;
             --border-color-hover: rgb(255, 14, 74);
         }
@@ -38,7 +40,11 @@
 </head>
 
 <body>
+
     <div id='app'>
+        <button @click='showToast'>点我</button>
+    </div>
+    <!-- <div id='app'>
         <g-row gutter='20'>
             <g-col span='2'>1</g-col>
             <g-col span='22' offset='1'>我是这一行</g-col>
@@ -85,7 +91,7 @@
         <div class='box'>
             <g-icon icon='shezhi'></g-icon>
         </div>
-    </div>
+    </div> -->
 </body>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src='./src/app.js'></script>
