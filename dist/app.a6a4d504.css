@@ -1021,7 +1021,7 @@
   align-items: center;
   font-size: var(--font-size);
   background-color: var(--toast-bg);
-  height: var(--toast-height);
+  min-height: var(--toast-height);
   line-height: 1.8;
   border: 1px solid red;
   position: fixed;
@@ -1029,4 +1029,16 @@
   left: 50%;
   padding: 0 16px;
   transform: translateX(-50%);
+}
+.toast .message[data-v-bb285f] {
+  padding: 4px 0;
+}
+.close[data-v-bb285f] {
+  padding-left: 16px;
+  flex-shrink: 0;
+}
+.line[data-v-bb285f] {
+  height: 100%;
+  border-left: 1px solid blue;
+  margin-left: 16px;
 }

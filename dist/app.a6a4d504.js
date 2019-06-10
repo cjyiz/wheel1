@@ -13076,7 +13076,8 @@ var _default = {
       type: String,
       // 下面这段代码不太懂
       validator: function validator(value) {
-        return ['left', 'right', 'center'].includes(value);
+        // 使用indexOf替代includes
+        return ['left', 'right', 'center'].indexOf(value) >= 0;
       }
     }
   },
@@ -13492,8 +13493,80 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
 var _default = {
-  name: 'GuluToast'
+  name: "GuluToast",
+  props: {
+    autoClose: {
+      type: Boolean,
+      default: true
+    },
+    autoCloseDelay: {
+      type: Number,
+      default: 50
+    },
+    closeButton: {
+      type: Object,
+      default: function _default() {
+        return {
+          text: "关闭",
+          callback: undefined
+        };
+      }
+    },
+    enableHtml: {
+      type: Boolean,
+      default: false
+    },
+    position: {
+      type: String,
+      default: 'top',
+      validator: function validator(value) {
+        return ['top', 'bottom', 'middle'].indexOf(value) >= 0;
+      }
+    }
+  },
+  created: function created() {
+    console.log(this.closeButton);
+  },
+  mounted: function mounted() {
+    this.execAutoClose();
+    this.updateStyles();
+  },
+  methods: {
+    updateStyles: function updateStyles() {
+      var _this = this;
+
+      // 这个方法不太好
+      this.$nextTick(function () {
+        _this.$refs.line.style.height = "{this.$refs.wrapper.getBoundingClientRect().height}px";
+      });
+    },
+    execAutoClose: function execAutoClose() {
+      var _this2 = this;
+
+      if (this.autoClose) {
+        setTimeout(function () {
+          _this2.close();
+        }, this.autoCloseDelay * 1000);
+      }
+    },
+    close: function close() {
+      this.$el.remove();
+      this.$destroy();
+    },
+    onClickClose: function onClickClose() {
+      this.close();
+
+      if (this.closeButton && typeof this.closeButton.callback === "function") {
+        this.closeButton.callback(this);
+      }
+    }
+  }
 };
 exports.default = _default;
         var $bb285f = exports.default || module.exports;
@@ -13508,7 +13581,28 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "toast" }, [_vm._t("default")], 2)
+  return _c("div", { ref: "wrapper", staticClass: "toast" }, [
+    _c(
+      "div",
+      { staticClass: "message" },
+      [
+        !_vm.enableHtml
+          ? _vm._t("default")
+          : _c("div", {
+              domProps: { innerHTML: _vm._s(_vm.$slots.default[0]) }
+            })
+      ],
+      2
+    ),
+    _vm._v(" "),
+    _c("div", { ref: "line", staticClass: "line" }),
+    _vm._v(" "),
+    _vm.closeButton
+      ? _c("span", { staticClass: "close", on: { click: _vm.onClickClose } }, [
+          _vm._v(_vm._s(_vm.closeButton.text))
+        ])
+      : _vm._e()
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -13558,9 +13652,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var _default = {
   install: function install(Vue, options) {
     // 下面代码的作用生成一个toast组件，放进body里面
-    Vue.prototype.$toast = function (message) {
+    Vue.prototype.$toast = function (message, toastOptions) {
       var Constructor = Vue.extend(_toast.default);
-      var toast = new Constructor();
+      var toast = new Constructor({
+        propsData: toastOptions
+      });
       toast.$slots.default = [message];
       toast.$mount();
       document.body.appendChild(toast.$el);
@@ -13595,12 +13691,11 @@ var _content = _interopRequireDefault(require("./content"));
 
 var _footer = _interopRequireDefault(require("./footer"));
 
-var _toast = _interopRequireDefault(require("./toast"));
-
 var _plugin = _interopRequireDefault(require("./plugin"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import Toast from './toast's
 _vue.default.config.productionTip = false;
 
 _vue.default.component('g-button', _button.default);
@@ -13623,9 +13718,8 @@ _vue.default.component('g-sideer', _sider.default);
 
 _vue.default.component('g-content', _content.default);
 
-_vue.default.component('g-footer', _footer.default);
+_vue.default.component('g-footer', _footer.default); // Vue.component('g-toast',Toast)
 
-_vue.default.component('g-toast', _toast.default);
 
 _vue.default.use(_plugin.default);
 
@@ -13637,11 +13731,13 @@ new _vue.default({
     loading3: false,
     message: 'hi'
   },
-  created: function created() {},
+  created: function created() {
+    this.$toast('文字', {
+      enableHtml: false
+    });
+  },
   methods: {
-    showToast: function showToast() {
-      this.$toast('我是message');
-    }
+    showToast: function showToast() {}
   }
 }); // // 单元测试,用{}作用域隔离 ，然后断言expect
 // import  chai from 'chai'
@@ -13744,7 +13840,7 @@ new _vue.default({
 //   button.click()
 //   expect(spy).to.have.been.called()
 // }
-},{"vue":"node_modules/vue/dist/vue.common.js","./button":"src/button.vue","./icon":"src/icon.vue","./button-group":"src/button-group.vue","./input":"src/input.vue","./col":"src/col.vue","./row":"src/row.vue","./layout":"src/layout.vue","./header":"src/header.vue","./sider":"src/sider.vue","./content":"src/content.vue","./footer":"src/footer.vue","./toast":"src/toast.vue","./plugin":"src/plugin.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"vue":"node_modules/vue/dist/vue.common.js","./button":"src/button.vue","./icon":"src/icon.vue","./button-group":"src/button-group.vue","./input":"src/input.vue","./col":"src/col.vue","./row":"src/row.vue","./layout":"src/layout.vue","./header":"src/header.vue","./sider":"src/sider.vue","./content":"src/content.vue","./footer":"src/footer.vue","./plugin":"src/plugin.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -13772,7 +13868,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52130" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49477" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

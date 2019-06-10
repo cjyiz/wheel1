@@ -14,7 +14,8 @@ export default {
         type:String,
         // 下面这段代码不太懂
         validator(value){
-           return ['left','right','center'].includes(value)
+          // 使用indexOf替代includes
+           return ['left','right','center'].indexOf(value)>=0
         }
     }
   },

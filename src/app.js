@@ -10,7 +10,7 @@ import Header from './header'
 import Sider from './sider'
 import Content from './content'
 import Footer from './footer'
-import Toast from './toast'
+// import Toast from './toast's
 import plugin from './plugin'
 Vue.config.productionTip = false
 Vue.component('g-button',Button)
@@ -24,7 +24,7 @@ Vue.component('g-header',Header)
 Vue.component('g-sideer',Sider)
 Vue.component('g-content',Content)
 Vue.component('g-footer',Footer)
-Vue.component('g-toast',Toast)
+// Vue.component('g-toast',Toast)
 Vue.use(plugin)
 new Vue({
   el:'#app',
@@ -35,12 +35,12 @@ new Vue({
     message:'hi'
   },
   created(){
-
+    this.$toast('文字',{
+      enableHtml:false
+    })
   },
   methods:{
-    showToast(){
-      this.$toast('我是message')
-    }
+    showToast(){}
   }
 })
 
