@@ -12,6 +12,7 @@ import Content from './content'
 import Footer from './footer'
 // import Toast from './toast's
 import plugin from './plugin'
+import { callbackify } from 'util';
 Vue.config.productionTip = false
 Vue.component('g-button',Button)
 Vue.component('g-icon',Icon)
@@ -35,12 +36,23 @@ new Vue({
     message:'hi'
   },
   created(){
-    this.$toast('文字',{
-      enableHtml:false
-    })
+   
   },
   methods:{
-    showToast(){}
+    showToast(){
+      this.$toast('你的智商需要充值',{
+        position:'top',
+        enableHtml:false,
+        closeButton:{
+          text:'已充值',
+          callbackify(){
+            console.log('已经充值了')
+          }
+        },
+        autoClose:false,
+        autoCloseDelay:3
+      })
+    }
   }
 })
 
