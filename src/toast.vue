@@ -1,11 +1,13 @@
 <template>
-  <div class="toast" ref="wrapper" :class='toastClasses'>
-      <div class='message'>
-    <slot v-if="!enableHtml"></slot>
-    <div v-else v-html="$slots.default[0]"></div>
+  <div class="wrapper" :class="toastClasses">
+    <div class="toast" ref="wrapper" >
+      <div class="message">
+        <slot v-if="!enableHtml"></slot>
+        <div v-else v-html="$slots.default[0]"></div>
+      </div>
+      <div class="line" ref="line"></div>
+      <span v-if="closeButton" class="close" @click="onClickClose">{{closeButton.text}}</span>
     </div>
-    <div class="line" ref="line"></div>
-    <span v-if="closeButton" class="close" @click="onClickClose">{{closeButton.text}}</span>
   </div>
 </template>
 
@@ -34,12 +36,12 @@ export default {
       type: Boolean,
       default: false
     },
-    position:{
-        type:String,
-        default:'middle',
-        validator(value){
-          return  ['top','bottom','middle'].indexOf(value)>=0
-        }
+    position: {
+      type: String,
+      default: "middle",
+      validator(value) {
+        return ["top", "bottom", "middle"].indexOf(value) >= 0;
+      }
     }
   },
   created() {
@@ -49,16 +51,16 @@ export default {
     this.execAutoClose();
     this.updateStyles();
   },
-  computed:{
-      toastClasses(){
-          return {[`position-${this.position}`]:true}
-      }
+  computed: {
+    toastClasses() {
+      return { [`position-${this.position}`]: true };
+    }
   },
   methods: {
     updateStyles() {
-        // 这个方法不太好
+      // 这个方法不太好
       this.$nextTick(() => {
-        this.$refs.line.style.height = `{this.$refs.wrapper.getBoundingClientRect().height}px`
+        this.$refs.line.style.height = `{this.$refs.wrapper.getBoundingClientRect().height}px`;
       });
     },
     execAutoClose() {
@@ -70,11 +72,12 @@ export default {
     },
     close() {
       this.$el.remove();
+      this.$emit("beforeClose");
       this.$destroy();
     },
     onClickClose() {
       this.close();
-      if (this.closeButton && typeof this.closeButton.callback=== "function") {
+      if (this.closeButton && typeof this.closeButton.callback === "function") {
         this.closeButton.callback(this);
       }
     }
@@ -82,6 +85,63 @@ export default {
 };
 </script>
 <style lang='scss' scoped>
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translatgeY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+@keyframes slide-down {
+  0% {
+    opacity: 0;
+    transform: translatgeY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.wrapper {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  $animation-duration: 300ms;
+  &.position-bottom {
+    bottom: 0;
+    .toast {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      animation: slide-up $animation-duration;
+    }
+  }
+  &.position-top {
+    top: 0;
+    .toast {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      animation: slide-down $animation-duration;
+    }
+  }
+  &.position-middle {
+    top: 50%;
+    .toast {
+      animation: fade-in $animation-duration;
+    }
+    transform: translateX(-50%) translateY(-50%);
+  }
+}
 .toast {
   display: flex;
   align-items: center;
@@ -90,34 +150,20 @@ export default {
   min-height: var(--toast-height);
   line-height: 1.8;
   border: 1px solid red;
-  position: fixed;
-  left: 50%;
   padding: 0 16px;
-  transform: translateX(-50%);
-  .message{
-      padding: 4px 0;
+  animation: fade-in 1s;
+  .message {
+    padding: 4px 0;
   }
-.close {
-  padding-left: 16px;
-  flex-shrink: 0;
-}
-.line {
-  height: 100%;
-  border-left: 1px solid blue;
-  margin-left: 16px;
-}
- &.position-bottom{
-    bottom:0;
-    transform:translateX(-50%,-50%);
-}
-&.position-top{
-    top:0;
-    transform:translateX(-50%,-50%);
-}
-&.position-middle{
-    top:50%;
-    transform:translateX(-50%,-50%);
-}
+  .close {
+    padding-left: 16px;
+    flex-shrink: 0;
+  }
+  .line {
+    height: 100%;
+    border-left: 1px solid blue;
+    margin-left: 16px;
+  }
 }
 </style>
 

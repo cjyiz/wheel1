@@ -13501,6 +13501,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 var _default = {
   name: "GuluToast",
   props: {
@@ -13527,9 +13529,9 @@ var _default = {
     },
     position: {
       type: String,
-      default: 'middle',
+      default: "middle",
       validator: function validator(value) {
-        return ['top', 'bottom', 'middle'].indexOf(value) >= 0;
+        return ["top", "bottom", "middle"].indexOf(value) >= 0;
       }
     }
   },
@@ -13565,6 +13567,7 @@ var _default = {
     },
     close: function close() {
       this.$el.remove();
+      this.$emit("beforeClose");
       this.$destroy();
     },
     onClickClose: function onClickClose() {
@@ -13589,10 +13592,8 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { ref: "wrapper", staticClass: "toast", class: _vm.toastClasses },
-    [
+  return _c("div", { staticClass: "wrapper", class: _vm.toastClasses }, [
+    _c("div", { ref: "wrapper", staticClass: "toast" }, [
       _c(
         "div",
         { staticClass: "message" },
@@ -13615,8 +13616,8 @@ exports.default = _default;
             [_vm._v(_vm._s(_vm.closeButton.text))]
           )
         : _vm._e()
-    ]
-  )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -13674,7 +13675,10 @@ var _default = {
       currentToast = createToast({
         Vue: Vue,
         message: message,
-        propsData: toastOptions
+        propsData: toastOptions,
+        onClose: function onClose() {
+          currentToast = null;
+        }
       });
     };
   }
@@ -14730,7 +14734,7 @@ new _vue.default({
   methods: {
     showToast: function showToast() {
       this.$toast('你的智商需要充值', {
-        position: 'top',
+        position: 'bottom',
         enableHtml: false,
         closeButton: {
           text: '已充值',
@@ -14872,7 +14876,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49477" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50404" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
