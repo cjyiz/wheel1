@@ -131,262 +131,206 @@ if ("production" === 'production') {
 } else {
   module.exports = require('./vue.common.dev.js');
 }
-},{"./vue.common.prod.js":"BydX"}],"rWcA":[function(require,module,exports) {
+},{"./vue.common.prod.js":"BydX"}],"dgLN":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
 //
 //
 var _default = {
-  name: "GuluRow",
+  name: "GuluToast",
   props: {
-    gutter: {
-      type: [Number, String]
-    },
-    align: {
-      type: String,
-      // 下面这段代码不太懂
+    autoClose: {
+      type: [Boolean, Number],
+      default: true,
       validator: function validator(value) {
-        // 使用indexOf替代includes
-        return ['left', 'right', 'center'].indexOf(value) >= 0;
+        if (value === false || typeof value === 'number') {
+          return true;
+        } else {
+          return false;
+        }
+      }
+    },
+    closeButton: {
+      type: Object,
+      default: function _default() {
+        return {
+          text: "关闭",
+          callback: undefined
+        };
+      }
+    },
+    enableHtml: {
+      type: Boolean,
+      default: false
+    },
+    position: {
+      type: String,
+      default: "middle",
+      validator: function validator(value) {
+        return ["top", "bottom", "middle"].indexOf(value) >= 0;
       }
     }
   },
-  data: function data() {
-    return {};
-  },
-  computed: {
-    rowStyle: function rowStyle() {
-      var gutter = this.gutter;
-      return {
-        marginLeft: -gutter / 2 + "px",
-        marginRight: -gutter / 2 + "px"
-      };
-    },
-    rowClass: function rowClass() {
-      var align = this.align;
-      return [align && "align-".concat(align)];
-    }
+  created: function created() {
+    console.log(this.closeButton);
   },
   mounted: function mounted() {
-    var _this = this;
-
-    this.$children.forEach(function (vm) {
-      vm.gutter = _this.gutter;
-    });
-  }
-};
-exports.default = _default;
-        var $7d92b3 = exports.default || module.exports;
-      
-      if (typeof $7d92b3 === 'function') {
-        $7d92b3 = $7d92b3.options;
-      }
-    
-        /* template */
-        Object.assign($7d92b3, (function () {
-          var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"row",class:_vm.rowClass,style:(_vm.rowStyle)},[_vm._t("default")],2)}
-var staticRenderFns = []
-
-          return {
-            render: render,
-            staticRenderFns: staticRenderFns,
-            _compiled: true,
-            _scopeId: "data-v-7d92b3",
-            functional: undefined
-          };
-        })());
-      
-},{}],"2sOC":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
-
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var validator = function validator(value) {
-  var keys = Object.keys(value);
-  var valid = true;
-  keys.forEach(function (key) {
-    if (!['sapn', 'offset'].includes(key)) {
-      valid = false;
-    }
-  });
-  return valid;
-};
-
-var _default = {
-  name: "GuluCol",
-  props: {
-    span: {
-      type: [Number, String]
-    },
-    offset: {
-      type: [Number, String]
-    } // phone:{
-    //   type:Object,
-    //   validator(value){
-    //     keys=Object.keys(value)
-    //    let valid=true
-    //    keys.forEach(key=>{
-    //      if(!['span','offset'].includes(key)){
-    //        valid=false
-    //      }
-    //    })
-    //    return valid
-    //   }
-    // } 
-
-  },
-  methods: {
-    createClasses: function createClasses(obj) {
-      var str = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
-
-      if (!obj) {
-        return [];
-      }
-
-      var array = [];
-
-      if (obj.span) {
-        array.push("col-".concat(str).concat(obj.span));
-      }
-
-      if (obj.offset) {
-        array.push("offset-".concat(str).concat(obj.offset));
-      }
-
-      return array;
-    }
+    this.execAutoClose();
+    this.updateStyles();
   },
   computed: {
-    colStyle: function colStyle() {
-      return {
-        paddingLeft: this.gutter / 2 + 'px',
-        paddingRight: this.gutter / 2 + 'px'
-      };
-    },
-    colClass: function colClass() {
-      var span = this.span,
-          offset = this.offset,
-          ipad = this.ipad,
-          narrowPc = this.narrowPc,
-          pc = this.pc,
-          widePc = this.widePc;
-      var createClasses = this.createClasses;
-      return [].concat(_toConsumableArray(createClasses({
-        span: span,
-        offset: offset
-      })), _toConsumableArray(createClasses(ipad, 'ipad-')), _toConsumableArray(createClasses(narrowPc, 'narrow-pc-')), _toConsumableArray(createClasses(pc, 'pc-')), _toConsumableArray(createClasses(widePc, 'wide-pc-')));
+    toastClasses: function toastClasses() {
+      return _defineProperty({}, "position-".concat(this.position), true);
     }
   },
-  data: function data() {
-    return {
-      gutter: 0
-    };
+  methods: {
+    updateStyles: function updateStyles() {
+      var _this = this;
+
+      // 这个方法不太好
+      this.$nextTick(function () {
+        _this.$refs.line.style.height = "{this.$refs.wrapper.getBoundingClientRect().height}px";
+      });
+    },
+    execAutoClose: function execAutoClose() {
+      var _this2 = this;
+
+      if (this.autoClose) {
+        setTimeout(function () {
+          _this2.close();
+        }, this.autoClose * 1000);
+      }
+    },
+    close: function close() {
+      this.$el.remove();
+      this.$emit("beforeClose");
+      this.$destroy();
+    },
+    onClickClose: function onClickClose() {
+      this.close();
+
+      if (this.closeButton && typeof this.closeButton.callback === "function") {
+        this.closeButton.callback(this);
+      }
+    }
   }
 };
 exports.default = _default;
-        var $f6806d = exports.default || module.exports;
+        var $bb285f = exports.default || module.exports;
       
-      if (typeof $f6806d === 'function') {
-        $f6806d = $f6806d.options;
+      if (typeof $bb285f === 'function') {
+        $bb285f = $bb285f.options;
       }
     
         /* template */
-        Object.assign($f6806d, (function () {
-          var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"col",class:_vm.colClass,style:(_vm.colStyle)},[_c('div',{staticStyle:{"border":"1px solid green","height":"100px"}},[_vm._t("default")],2)])}
+        Object.assign($bb285f, (function () {
+          var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"wrapper",class:_vm.toastClasses},[_c('div',{ref:"wrapper",staticClass:"toast"},[_c('div',{staticClass:"message"},[(!_vm.enableHtml)?_vm._t("default"):_c('div',{domProps:{"innerHTML":_vm._s(_vm.$slots.default[0])}})],2),_vm._v(" "),_c('div',{ref:"line",staticClass:"line"}),_vm._v(" "),(_vm.closeButton)?_c('span',{staticClass:"close",on:{"click":_vm.onClickClose}},[_vm._v(_vm._s(_vm.closeButton.text))]):_vm._e()])])}
 var staticRenderFns = []
 
           return {
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-f6806d",
+            _scopeId: "data-v-bb285f",
             functional: undefined
           };
         })());
       
-},{}],"Tgvo":[function(require,module,exports) {
+},{}],"jRN6":[function(require,module,exports) {
 "use strict";
 
 var _vue = _interopRequireDefault(require("vue"));
 
-var _row = _interopRequireDefault(require("../src/row"));
-
-var _col = _interopRequireDefault(require("../src/col"));
+var _toast = _interopRequireDefault(require("../src/toast"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var expect = chai.expect;
 _vue.default.config.productionTip = false;
-_vue.default.config.devtools = false;
-describe('Row', function () {
-  it('存在.', function () {
-    expect(_row.default).to.exist;
+_vue.default.config.devtools = false; // describe (it()it())
+// 
+
+describe("Toast", function () {
+  it("存在.", function () {
+    expect(_toast.default).to.exist;
   });
-  it('接收 gutter 属性.', function () {
-    _vue.default.component('g-row', _row.default);
+  describe('props', function () {
+    it('接收 autoClose', function (done) {
+      var div = document.createElement('div');
+      document.body.appendChild(div);
 
-    _vue.default.component('g-col', _col.default);
+      var Constructor = _vue.default.extend(_toast.default);
 
-    var div = document.createElement('div');
-    document.body.appendChild(div);
-    div.innerHTML = "\n        <g-row gutter='20'>\n        <g-col span='12'></g-col>\n        <g-col span='12'></g-col>\n        </g-row>\n        ";
-    var vm = new _vue.default({
-      el: div
+      var vm = new Constructor({
+        propsData: {
+          autoClose: 1
+        }
+      }).$mount(div);
+      vm.$on('close', function () {
+        expect(document.body.contains(vm.$el)).to.eq(false);
+        done();
+      });
     });
-    setTimeout(function () {
-      var cols = vm.$el.querySelectorAll('.col');
-      expect(getComputedStyle(cols[0]).paddingRight).to.eq('px');
-      expect(getComputedStyle(cols[1]).paddingLeft).to.eq('px');
-      done();
-      vm.$el.remove();
-      vm.$destroy();
+    it('接收 closeButton', function () {
+      var callback = sinon.fake();
+
+      var Constructor = _vue.default.extend(_toast.default);
+
+      var vm = new Constructor({
+        propsData: {
+          closeButton: {
+            text: '关闭吧',
+            callback: callback
+          }
+        }
+      }).$mount();
+      var closeButton = vm.$el.querySelector('.close');
+      expect(closeButton.textContent.trim()).to.eq('关闭吧');
+      closeButton.click();
+      expect(callback).to.have.been.called;
     });
-  });
-  it('接收 align 属性', function () {
-    var div = document.createElement('div');
-    document.body.appendChild(div);
+    it('接收 enableHtml', function () {
+      var Constructor = _vue.default.extend(_toast.default);
 
-    var Constructor = _vue.default.extend(_row.default);
+      var vm = new Constructor({
+        propsData: {
+          enableHtml: true
+        }
+      });
+      vm.$slots.default = ['<strong id="test">hi</strong>'];
+      vm.$mount();
+      var strong = vm.$el.querySelector('#test');
+      expect(strong).to.exist;
+    });
+    it('接收 position', function () {
+      var Constructor = _vue.default.extend(_toast.default);
 
-    var vm = new Constructor({
-      propsData: {
-        align: 'right'
-      }
-    }).$mount(div);
-    var element = vm.$el;
-    expect(getComputedStyle(element).justifyContent).to.eq('flex-end');
-    div.remove();
-    vm.$destroy();
+      var vm = new Constructor({
+        propsData: {
+          position: 'bottom'
+        }
+      }).$mount();
+      expect(vm.$el.classList.contains('position-bottom')).to.eq(true);
+    });
   });
 });
-},{"vue":"ApMz","../src/row":"rWcA","../src/col":"2sOC"}]},{},["Tgvo"], null)
-//# sourceMappingURL=/row.test.js.map
+},{"vue":"ApMz","../src/toast":"dgLN"}]},{},["jRN6"], null)
+//# sourceMappingURL=/toast.test.js.map
