@@ -183,14 +183,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $7d92b3 = exports.default || module.exports;
+        var $957d1c = exports.default || module.exports;
       
-      if (typeof $7d92b3 === 'function') {
-        $7d92b3 = $7d92b3.options;
+      if (typeof $957d1c === 'function') {
+        $957d1c = $957d1c.options;
       }
     
         /* template */
-        Object.assign($7d92b3, (function () {
+        Object.assign($957d1c, (function () {
           var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"row",class:_vm.rowClass,style:(_vm.rowStyle)},[_vm._t("default")],2)}
 var staticRenderFns = []
 
@@ -198,7 +198,7 @@ var staticRenderFns = []
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-7d92b3",
+            _scopeId: "data-v-957d1c",
             functional: undefined
           };
         })());
@@ -313,14 +313,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $f6806d = exports.default || module.exports;
+        var $1105d3 = exports.default || module.exports;
       
-      if (typeof $f6806d === 'function') {
-        $f6806d = $f6806d.options;
+      if (typeof $1105d3 === 'function') {
+        $1105d3 = $1105d3.options;
       }
     
         /* template */
-        Object.assign($f6806d, (function () {
+        Object.assign($1105d3, (function () {
           var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"col",class:_vm.colClass,style:(_vm.colStyle)},[_c('div',{staticStyle:{"border":"1px solid green","height":"100px"}},[_vm._t("default")],2)])}
 var staticRenderFns = []
 
@@ -328,7 +328,7 @@ var staticRenderFns = []
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-f6806d",
+            _scopeId: "data-v-1105d3",
             functional: undefined
           };
         })());

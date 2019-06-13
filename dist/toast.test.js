@@ -154,25 +154,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//构造组件的选项
 var _default = {
-  name: "GuluToast",
+  name: 'GuluToast',
   props: {
     autoClose: {
       type: [Boolean, Number],
-      default: true,
+      default: 5,
       validator: function validator(value) {
-        if (value === false || typeof value === 'number') {
-          return true;
-        } else {
-          return false;
-        }
+        return value === false || typeof value === 'number';
       }
     },
     closeButton: {
       type: Object,
       default: function _default() {
         return {
-          text: "关闭",
+          text: '关闭',
           callback: undefined
         };
       }
@@ -183,18 +181,15 @@ var _default = {
     },
     position: {
       type: String,
-      default: "middle",
+      default: 'top',
       validator: function validator(value) {
-        return ["top", "bottom", "middle"].indexOf(value) >= 0;
+        return ['top', 'bottom', 'middle'].indexOf(value) >= 0;
       }
     }
   },
-  created: function created() {
-    console.log(this.closeButton);
-  },
   mounted: function mounted() {
-    this.execAutoClose();
     this.updateStyles();
+    this.execAutoClose();
   },
   computed: {
     toastClasses: function toastClasses() {
@@ -205,9 +200,9 @@ var _default = {
     updateStyles: function updateStyles() {
       var _this = this;
 
-      // 这个方法不太好
       this.$nextTick(function () {
-        _this.$refs.line.style.height = "{this.$refs.wrapper.getBoundingClientRect().height}px";
+        _this.$refs.line.style.height = "".concat(_this.$refs.toast.getBoundingClientRect().height, "px");
+        console.log(_this.$refs.line.style.height);
       });
     },
     execAutoClose: function execAutoClose() {
@@ -221,35 +216,35 @@ var _default = {
     },
     close: function close() {
       this.$el.remove();
-      this.$emit("beforeClose");
+      this.$emit('close');
       this.$destroy();
     },
     onClickClose: function onClickClose() {
       this.close();
 
-      if (this.closeButton && typeof this.closeButton.callback === "function") {
-        this.closeButton.callback(this);
+      if (this.closeButton && typeof this.closeButton.callback === 'function') {
+        this.closeButton.callback(this); //this === toast实例
       }
     }
   }
 };
 exports.default = _default;
-        var $bb285f = exports.default || module.exports;
+        var $044d89 = exports.default || module.exports;
       
-      if (typeof $bb285f === 'function') {
-        $bb285f = $bb285f.options;
+      if (typeof $044d89 === 'function') {
+        $044d89 = $044d89.options;
       }
     
         /* template */
-        Object.assign($bb285f, (function () {
-          var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"wrapper",class:_vm.toastClasses},[_c('div',{ref:"wrapper",staticClass:"toast"},[_c('div',{staticClass:"message"},[(!_vm.enableHtml)?_vm._t("default"):_c('div',{domProps:{"innerHTML":_vm._s(_vm.$slots.default[0])}})],2),_vm._v(" "),_c('div',{ref:"line",staticClass:"line"}),_vm._v(" "),(_vm.closeButton)?_c('span',{staticClass:"close",on:{"click":_vm.onClickClose}},[_vm._v(_vm._s(_vm.closeButton.text))]):_vm._e()])])}
+        Object.assign($044d89, (function () {
+          var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"wrapper",class:_vm.toastClasses},[_c('div',{ref:"toast",staticClass:"toast"},[_c('div',{staticClass:"message"},[(!_vm.enableHtml)?_vm._t("default"):_c('div',{domProps:{"innerHTML":_vm._s(_vm.$slots.default[0])}})],2),_vm._v(" "),_c('div',{ref:"line",staticClass:"line"}),_vm._v(" "),(_vm.closeButton)?_c('span',{staticClass:"close",on:{"click":_vm.onClickClose}},[_vm._v("\n      "+_vm._s(_vm.closeButton.text)+"\n    ")]):_vm._e()])])}
 var staticRenderFns = []
 
           return {
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-bb285f",
+            _scopeId: "data-v-044d89",
             functional: undefined
           };
         })());
@@ -265,15 +260,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var expect = chai.expect;
 _vue.default.config.productionTip = false;
-_vue.default.config.devtools = false; // describe (it()it())
-// 
-
-describe("Toast", function () {
-  it("存在.", function () {
+_vue.default.config.devtools = false;
+describe('Toast', function () {
+  it('存在.', function () {
     expect(_toast.default).to.exist;
   });
   describe('props', function () {
-    it('接收 autoClose', function (done) {
+    it('接受 autoClose', function (done) {
       var div = document.createElement('div');
       document.body.appendChild(div);
 
@@ -289,7 +282,7 @@ describe("Toast", function () {
         done();
       });
     });
-    it('接收 closeButton', function () {
+    it('接受 closeButton', function () {
       var callback = sinon.fake();
 
       var Constructor = _vue.default.extend(_toast.default);
@@ -307,7 +300,7 @@ describe("Toast", function () {
       closeButton.click();
       expect(callback).to.have.been.called;
     });
-    it('接收 enableHtml', function () {
+    it('接受 enableHtml', function () {
       var Constructor = _vue.default.extend(_toast.default);
 
       var vm = new Constructor({
@@ -320,7 +313,7 @@ describe("Toast", function () {
       var strong = vm.$el.querySelector('#test');
       expect(strong).to.exist;
     });
-    it('接收 position', function () {
+    it('接受 position', function () {
       var Constructor = _vue.default.extend(_toast.default);
 
       var vm = new Constructor({

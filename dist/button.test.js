@@ -204,14 +204,14 @@ var _default = {
   props: ['name']
 };
 exports.default = _default;
-        var $cbec4d = exports.default || module.exports;
+        var $4a1516 = exports.default || module.exports;
       
-      if (typeof $cbec4d === 'function') {
-        $cbec4d = $cbec4d.options;
+      if (typeof $4a1516 === 'function') {
+        $4a1516 = $4a1516.options;
       }
     
         /* template */
-        Object.assign($cbec4d, (function () {
+        Object.assign($4a1516, (function () {
           var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('svg',{staticClass:"g-icon"},[_c('use',{attrs:{"xlink:href":("#i-" + _vm.name)}})])}
 var staticRenderFns = []
 
@@ -274,14 +274,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $3ba049 = exports.default || module.exports;
+        var $972e1b = exports.default || module.exports;
       
-      if (typeof $3ba049 === 'function') {
-        $3ba049 = $3ba049.options;
+      if (typeof $972e1b === 'function') {
+        $972e1b = $972e1b.options;
       }
     
         /* template */
-        Object.assign($3ba049, (function () {
+        Object.assign($972e1b, (function () {
           var render = function () {
 var _obj;
 var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('button',{staticClass:"g-button",class:( _obj = {}, _obj[("icon-" + _vm.iconPosition)] = true, _obj ),on:{"click":function($event){return _vm.$emit('click')}}},[(_vm.loading)?_c('g-icon',{staticClass:"loading icon",attrs:{"name":"loading"}}):_vm._e(),_vm._v(" "),(_vm.icon && !_vm.loading)?_c('g-icon',{staticClass:"icon",attrs:{"name":_vm.icon}}):_vm._e(),_vm._v(" "),_c('div',{staticClass:"content"},[_vm._t("default")],2)],1)}
@@ -291,7 +291,7 @@ var staticRenderFns = []
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-3ba049",
+            _scopeId: "data-v-972e1b",
             functional: undefined
           };
         })());
