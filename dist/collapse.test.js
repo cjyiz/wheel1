@@ -131,13 +131,260 @@ if ("production" === 'production') {
 } else {
   module.exports = require('./vue.common.dev.js');
 }
-},{"./vue.common.prod.js":"BydX"}],"ul/h":[function(require,module,exports) {
+},{"./vue.common.prod.js":"BydX"}],"Ahjv":[function(require,module,exports) {
 "use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
 
 var _vue = _interopRequireDefault(require("vue"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: "GuluCollapse",
+  props: {
+    single: {
+      type: Boolean,
+      default: false
+    },
+    selected: {
+      type: Array
+    }
+  },
+  data: function data() {
+    return {
+      eventBus: new _vue.default()
+    };
+  },
+  provide: function provide() {
+    return {
+      eventBus: this.eventBus
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    this.eventBus.$emit('update:selected', this.selected);
+    this.eventBus.$on('update:addSelected', function (name) {
+      var selectedCopy = JSON.parse(JSON.stringify(_this.selected));
+
+      if (_this.single) {
+        selectedCopy = [name];
+      } else {
+        selectedCopy.push(name);
+      }
+
+      _this.eventBus.$emit('update:selected', selectedCopy);
+
+      _this.$emit('update:selected', selectedCopy);
+    });
+    this.eventBus.$on('update:removeSelected', function (name) {
+      var selectedCopy = JSON.parse(JSON.stringify(_this.selected));
+      var index = selectedCopy.indexOf(name);
+      selectedCopy.splice(index, 1);
+
+      _this.eventBus.$emit('update:selected', selectedCopy);
+
+      _this.$emit('update:selected', selectedCopy);
+    });
+  }
+};
+exports.default = _default;
+        var $9c827e = exports.default || module.exports;
+      
+      if (typeof $9c827e === 'function') {
+        $9c827e = $9c827e.options;
+      }
+    
+        /* template */
+        Object.assign($9c827e, (function () {
+          var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"collapse"},[_vm._t("default")],2)}
+var staticRenderFns = []
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-9c827e",
+            functional: undefined
+          };
+        })());
+      
+},{"vue":"ApMz"}],"8HX7":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: "GuluCollapseItem",
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    name: {
+      type: String,
+      required: true
+    }
+  },
+  data: function data() {
+    return {
+      open: false
+    };
+  },
+  inject: ['eventBus'],
+  mounted: function mounted() {
+    var _this = this;
+
+    this.eventBus && this.eventBus.$on('update:selected', function (names) {
+      if (names.indexOf(_this.name) >= 0) {
+        _this.open = true;
+      } else {
+        _this.open = false;
+      }
+    });
+  },
+  methods: {
+    toggle: function toggle() {
+      if (this.open) {
+        this.eventBus && this.eventBus.$emit('update:removeSelected', this.name);
+      } else {
+        this.eventBus && this.eventBus.$emit('update:addSelected', this.name);
+      }
+    }
+  }
+};
+exports.default = _default;
+        var $b1bc33 = exports.default || module.exports;
+      
+      if (typeof $b1bc33 === 'function') {
+        $b1bc33 = $b1bc33.options;
+      }
+    
+        /* template */
+        Object.assign($b1bc33, (function () {
+          var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"collapseItem"},[_c('div',{staticClass:"title",attrs:{"data-name":_vm.name},on:{"click":_vm.toggle}},[_vm._v("\n    "+_vm._s(_vm.title)+"\n  ")]),_vm._v(" "),(_vm.open)?_c('div',{ref:"content",staticClass:"content"},[_vm._t("default")],2):_vm._e()])}
+var staticRenderFns = []
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-b1bc33",
+            functional: undefined
+          };
+        })());
+      
+},{}],"PC5E":[function(require,module,exports) {
+"use strict";
+
+var _vue = _interopRequireDefault(require("vue"));
+
+var _collapse = _interopRequireDefault(require("../src/collapse"));
+
+var _collapseItem = _interopRequireDefault(require("../src/collapse-item"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var expect = chai.expect;
-},{"vue":"ApMz"}]},{},["ul/h"], null)
-//# sourceMappingURL=/tabs-head.test.js.map
+_vue.default.config.productionTip = false;
+_vue.default.config.devtools = false;
+describe('Collapse', function () {
+  it('存在.', function () {
+    expect(_collapse.default).to.exist;
+  });
+  it('接受 selected 属性', function (done) {
+    _vue.default.component('g-collapse', _collapse.default);
+
+    _vue.default.component('g-collapse-item', _collapseItem.default);
+
+    var div = document.createElement('div');
+    document.body.appendChild(div);
+    div.innerHTML = "\n        <g-collapse :selected=\"xxx\">\n          <g-collapse-item title=\"\u6807\u98981\" name=\"1\"><span id=\"content-1\">1</span></g-collapse-item>\n          <g-collapse-item title=\"\u6807\u98982\" name=\"2\"><span id=\"content-2\">2</span></g-collapse-item>\n          <g-collapse-item title=\"\u6807\u98983\" name=\"3\"><span id=\"content-3\">3</span></g-collapse-item>\n        </g-collapse>\n    ";
+    var vm = new _vue.default({
+      el: div,
+      data: {
+        xxx: ['1', '2']
+      }
+    });
+    setTimeout(function () {
+      expect(vm.$el.querySelector('#content-1')).to.exist;
+      expect(vm.$el.querySelector('#content-2')).to.exist;
+      expect(vm.$el.querySelector('#content-3')).to.not.exist;
+      done();
+    });
+  });
+  it('接受 single 属性', function (done) {
+    _vue.default.component('g-collapse', _collapse.default);
+
+    _vue.default.component('g-collapse-item', _collapseItem.default);
+
+    var div = document.createElement('div');
+    document.body.appendChild(div);
+    div.innerHTML = "\n        <g-collapse :selected.sync=\"xxx\" single>\n          <g-collapse-item title=\"\u6807\u98981\" name=\"1\"><span id=\"content-1\">1</span></g-collapse-item>\n          <g-collapse-item title=\"\u6807\u98982\" name=\"2\"><span id=\"content-2\">2</span></g-collapse-item>\n          <g-collapse-item title=\"\u6807\u98983\" name=\"3\"><span id=\"content-3\">3</span></g-collapse-item>\n        </g-collapse>\n    ";
+    var vm = new _vue.default({
+      el: div,
+      data: {
+        xxx: ['1']
+      }
+    });
+    setTimeout(function () {
+      vm.$el.querySelector('[data-name="2"]').click();
+      setTimeout(function () {
+        expect(vm.$el.querySelector('#content-1')).to.not.exist;
+        expect(vm.$el.querySelector('#content-2')).to.exist;
+        done();
+      });
+    });
+  });
+  it('触发 update:selected 事件', function (done) {
+    _vue.default.component('g-collapse', _collapse.default);
+
+    _vue.default.component('g-collapse-item', _collapseItem.default);
+
+    var div = document.createElement('div');
+    document.body.appendChild(div);
+    div.innerHTML = "\n        <g-collapse :selected=\"xxx\" @update:selected=\"onSelect\">\n          <g-collapse-item title=\"\u6807\u98981\" name=\"1\"><span id=\"content-1\">1</span></g-collapse-item>\n          <g-collapse-item title=\"\u6807\u98982\" name=\"2\"><span id=\"content-2\">2</span></g-collapse-item>\n          <g-collapse-item title=\"\u6807\u98983\" name=\"3\"><span id=\"content-3\">3</span></g-collapse-item>\n        </g-collapse>\n    ";
+    var callback = sinon.fake();
+    var vm = new _vue.default({
+      el: div,
+      data: {
+        xxx: ['1']
+      },
+      methods: {
+        onSelect: callback
+      }
+    });
+    setTimeout(function () {
+      vm.$el.querySelector('[data-name="2"]').click();
+      setTimeout(function () {
+        expect(callback).to.have.been.called;
+        done();
+      });
+    });
+  });
+});
+},{"vue":"ApMz","../src/collapse":"Ahjv","../src/collapse-item":"8HX7"}]},{},["PC5E"], null)
+//# sourceMappingURL=/collapse.test.js.map
