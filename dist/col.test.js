@@ -241,14 +241,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $1105d3 = exports.default || module.exports;
+        var $424565 = exports.default || module.exports;
       
-      if (typeof $1105d3 === 'function') {
-        $1105d3 = $1105d3.options;
+      if (typeof $424565 === 'function') {
+        $424565 = $424565.options;
       }
     
         /* template */
-        Object.assign($1105d3, (function () {
+        Object.assign($424565, (function () {
           var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"col",class:_vm.colClass,style:(_vm.colStyle)},[_c('div',{staticStyle:{"border":"1px solid green","height":"100px"}},[_vm._t("default")],2)])}
 var staticRenderFns = []
 
@@ -256,7 +256,7 @@ var staticRenderFns = []
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-1105d3",
+            _scopeId: "data-v-424565",
             functional: undefined
           };
         })());

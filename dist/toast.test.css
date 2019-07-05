@@ -1,4 +1,4 @@
-@keyframes slide-up-data-v-044d89 {
+@keyframes slide-up-data-v-467bfe {
 0% {
     opacity: 0;
     transform: translateY(100%);
@@ -8,7 +8,7 @@
     transform: translateY(0%);
 }
 }
-@keyframes slide-down-data-v-044d89 {
+@keyframes slide-down-data-v-467bfe {
 0% {
     opacity: 0;
     transform: translateY(-100%);
@@ -18,7 +18,7 @@
     transform: translateY(0%);
 }
 }
-@keyframes fade-in-data-v-044d89 {
+@keyframes fade-in-data-v-467bfe {
 0% {
     opacity: 0;
 }
@@ -26,35 +26,35 @@
     opacity: 1;
 }
 }
-.wrapper[data-v-044d89] {
+.wrapper[data-v-467bfe] {
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
 }
-.wrapper.position-top[data-v-044d89] {
+.wrapper.position-top[data-v-467bfe] {
   top: 0;
 }
-.wrapper.position-top .toast[data-v-044d89] {
+.wrapper.position-top .toast[data-v-467bfe] {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  animation: slide-down-data-v-044d89 300ms;
+  animation: slide-down-data-v-467bfe 300ms;
 }
-.wrapper.position-bottom[data-v-044d89] {
+.wrapper.position-bottom[data-v-467bfe] {
   bottom: 0;
 }
-.wrapper.position-bottom .toast[data-v-044d89] {
+.wrapper.position-bottom .toast[data-v-467bfe] {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  animation: slide-up-data-v-044d89 300ms;
+  animation: slide-up-data-v-467bfe 300ms;
 }
-.wrapper.position-middle[data-v-044d89] {
+.wrapper.position-middle[data-v-467bfe] {
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
 }
-.wrapper.position-middle .toast[data-v-044d89] {
-  animation: fade-in-data-v-044d89 300ms;
+.wrapper.position-middle .toast[data-v-467bfe] {
+  animation: fade-in-data-v-467bfe 300ms;
 }
-.toast[data-v-044d89] {
+.toast[data-v-467bfe] {
   font-size: 14px;
   min-height: 40px;
   line-height: 1.8;
@@ -66,14 +66,14 @@
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
   padding: 0 16px;
 }
-.toast .message[data-v-044d89] {
+.toast .message[data-v-467bfe] {
   padding: 8px 0;
 }
-.toast .close[data-v-044d89] {
+.toast .close[data-v-467bfe] {
   padding-left: 16px;
   flex-shrink: 0;
 }
-.toast .line[data-v-044d89] {
+.toast .line[data-v-467bfe] {
   height: 100%;
   border-left: 1px solid #666;
   margin-left: 16px;

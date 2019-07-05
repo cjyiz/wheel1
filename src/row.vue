@@ -12,7 +12,7 @@ export default {
     },
     align:{
         type:String,
-        // 下面这段代码不太懂
+        // 下面这段代码不太懂，自定义验证器，检验是否是这三种属性值
         validator(value){
           // 使用indexOf替代includes
            return ['left','right','center'].indexOf(value)>=0
