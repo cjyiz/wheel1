@@ -12,7 +12,10 @@ import Content from './content'
 import Footer from './footer'
 // import Toast from './toast's
 import plugin from './plugin'
+import Popover from './popover'
 import { callbackify } from 'util';
+import Collapse from './collapse'
+import CollapseItem from './collapse-item'
 Vue.config.productionTip = false
 Vue.component('g-button',Button)
 Vue.component('g-icon',Icon)
@@ -25,6 +28,9 @@ Vue.component('g-header',Header)
 Vue.component('g-sideer',Sider)
 Vue.component('g-content',Content)
 Vue.component('g-footer',Footer)
+Vue.component('g-popover',Popover)
+Vue.component('g-collapse',Collapse)
+Vue.component('g-collapse-item',CollapseItem)
 // Vue.component('g-toast',Toast)
 Vue.use(plugin)
 new Vue({

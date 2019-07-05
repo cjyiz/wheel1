@@ -131,199 +131,369 @@ if ("production" === 'production') {
 } else {
   module.exports = require('./vue.common.dev.js');
 }
-},{"./vue.common.prod.js":"BydX"}],"2sOC":[function(require,module,exports) {
+},{"./vue.common.prod.js":"BydX"}],"n6Xd":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
-
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
-
 //
 //
 //
 //
 //
-//
-//
-//
-//
-//
-//
-var validator = function validator(value) {
-  var keys = Object.keys(value);
-  var valid = true;
-  keys.forEach(function (key) {
-    if (!['sapn', 'offset'].includes(key)) {
-      valid = false;
-    }
-  });
-  return valid;
-};
-
 var _default = {
-  name: "GuluCol",
+  name: "GuluTabs",
   props: {
-    span: {
-      type: [Number, String]
+    selected: {
+      type: String,
+      required: true
     },
-    offset: {
-      type: [Number, String]
-    } // phone:{
-    //   type:Object,
-    //   validator(value){
-    //     keys=Object.keys(value)
-    //    let valid=true
-    //    keys.forEach(key=>{
-    //      if(!['span','offset'].includes(key)){
-    //        valid=false
-    //      }
-    //    })
-    //    return valid
-    //   }
-    // } 
-
-  },
-  methods: {
-    createClasses: function createClasses(obj) {
-      var str = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
-
-      if (!obj) {
-        return [];
+    direction: {
+      type: String,
+      default: "horizontal",
+      validator: function validator(value) {
+        return ["horizontal", "vertical"].indexOf(value) >= 0;
       }
-
-      var array = [];
-
-      if (obj.span) {
-        array.push("col-".concat(str).concat(obj.span));
-      }
-
-      if (obj.offset) {
-        array.push("offset-".concat(str).concat(obj.offset));
-      }
-
-      return array;
-    }
-  },
-  computed: {
-    colStyle: function colStyle() {
-      return {
-        paddingLeft: this.gutter / 2 + 'px',
-        paddingRight: this.gutter / 2 + 'px'
-      };
-    },
-    colClass: function colClass() {
-      var span = this.span,
-          offset = this.offset,
-          ipad = this.ipad,
-          narrowPc = this.narrowPc,
-          pc = this.pc,
-          widePc = this.widePc;
-      var createClasses = this.createClasses;
-      return [].concat(_toConsumableArray(createClasses({
-        span: span,
-        offset: offset
-      })), _toConsumableArray(createClasses(ipad, 'ipad-')), _toConsumableArray(createClasses(narrowPc, 'narrow-pc-')), _toConsumableArray(createClasses(pc, 'pc-')), _toConsumableArray(createClasses(widePc, 'wide-pc-')));
     }
   },
   data: function data() {
     return {
-      gutter: 0
+      eventBus: new Vue()
     };
+  },
+  provide: function provide() {
+    return {
+      eventBus: this.eventBus
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    if (this.$children.length === 0) {
+      console && console.warn && console.warn("tabs的子组件应该是tabs-head和tabs-nav，但是你没有写子组件");
+    }
+
+    this.$children.forEach(function (vm) {
+      if (vm.$options.name === "GuluTabsHead") {
+        vm.$children.forEach(function (childVm) {
+          if (childVm.$options.name === "GuluTabsItem" && childVm.name === _this.selected) {
+            _this.eventBus.$emit("update:selected", _this.selected, childVm);
+          }
+        });
+      }
+    });
+  },
+  created: function created() {
+    this.$emit();
   }
 };
 exports.default = _default;
-<<<<<<< HEAD
-        var $424565 = exports.default || module.exports;
+        var $59aeb3 = exports.default || module.exports;
       
-      if (typeof $424565 === 'function') {
-        $424565 = $424565.options;
+      if (typeof $59aeb3 === 'function') {
+        $59aeb3 = $59aeb3.options;
       }
     
         /* template */
-        Object.assign($424565, (function () {
-=======
-        var $f6806d = exports.default || module.exports;
-      
-      if (typeof $f6806d === 'function') {
-        $f6806d = $f6806d.options;
-      }
-    
-        /* template */
-        Object.assign($f6806d, (function () {
->>>>>>> 3ea45ab7fe528f0eb303c7cac1f21f9d6cc153b4
-          var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"col",class:_vm.colClass,style:(_vm.colStyle)},[_c('div',{staticStyle:{"border":"1px solid green","height":"100px"}},[_vm._t("default")],2)])}
+        Object.assign($59aeb3, (function () {
+          var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"tabs"},[_vm._t("default")],2)}
 var staticRenderFns = []
 
           return {
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-<<<<<<< HEAD
-            _scopeId: "data-v-424565",
-=======
-            _scopeId: "data-v-f6806d",
->>>>>>> 3ea45ab7fe528f0eb303c7cac1f21f9d6cc153b4
+            _scopeId: null,
             functional: undefined
           };
         })());
       
-},{}],"FIP2":[function(require,module,exports) {
+},{}],"Q07j":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: 'GuluTabsHead',
+  inject: ['eventBus'],
+  mounted: function mounted() {
+    var _this = this;
+
+    this.eventBus.$on('update:selected', function (item, vm) {
+      var _vm$$el$getBoundingCl = vm.$el.getBoundingClientRect(),
+          width = _vm$$el$getBoundingCl.width,
+          height = _vm$$el$getBoundingCl.height,
+          top = _vm$$el$getBoundingCl.top,
+          left = _vm$$el$getBoundingCl.left;
+
+      _this.$refs.line.style.width = "".concat(width, "px");
+      _this.$refs.line.style.left = "".concat(left, "px");
+    });
+  }
+};
+exports.default = _default;
+        var $b4c1de = exports.default || module.exports;
+      
+      if (typeof $b4c1de === 'function') {
+        $b4c1de = $b4c1de.options;
+      }
+    
+        /* template */
+        Object.assign($b4c1de, (function () {
+          var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"tabs-head"},[_vm._t("default"),_vm._v(" "),_c('div',{ref:"line",staticClass:"line"}),_vm._v(" "),_c('div',{staticClass:"actions-wrapper"},[_vm._t("actions")],2)],2)}
+var staticRenderFns = []
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-b4c1de",
+            functional: undefined
+          };
+        })());
+      
+},{}],"Ydtc":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+var _default = {
+  name: 'GuluTabsBody',
+  inject: ['eventBus'],
+  created: function created() {}
+};
+exports.default = _default;
+        var $370bde = exports.default || module.exports;
+      
+      if (typeof $370bde === 'function') {
+        $370bde = $370bde.options;
+      }
+    
+        /* template */
+        Object.assign($370bde, (function () {
+          var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"tabs-body"},[_vm._t("default")],2)}
+var staticRenderFns = []
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: null,
+            functional: undefined
+          };
+        })());
+      
+},{}],"albi":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: 'GuluTabsItem',
+  inject: ['eventBus'],
+  data: function data() {
+    return {
+      active: false
+    };
+  },
+  props: {
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    name: {
+      type: String | Number,
+      required: true
+    }
+  },
+  computed: {
+    classes: function classes() {
+      return {
+        active: this.active,
+        disabled: this.disabled
+      };
+    }
+  },
+  created: function created() {
+    var _this = this;
+
+    if (this.eventBus) {
+      this.eventBus.$on('update:selected', function (name) {
+        _this.active = name === _this.name;
+      });
+    }
+  },
+  methods: {
+    onClick: function onClick() {
+      if (this.disabled) {
+        return;
+      }
+
+      this.eventBus && this.eventBus.$emit('update:selected', this.name, this);
+      this.$emit('click', this);
+    }
+  }
+};
+exports.default = _default;
+        var $fd5ae4 = exports.default || module.exports;
+      
+      if (typeof $fd5ae4 === 'function') {
+        $fd5ae4 = $fd5ae4.options;
+      }
+    
+        /* template */
+        Object.assign($fd5ae4, (function () {
+          var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"tabs-item",class:_vm.classes,attrs:{"data-name":_vm.name},on:{"click":_vm.onClick}},[_vm._t("default")],2)}
+var staticRenderFns = []
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-fd5ae4",
+            functional: undefined
+          };
+        })());
+      
+},{}],"vREI":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+var _default = {
+  name: 'GuluTabsPane',
+  inject: ['eventBus'],
+  data: function data() {
+    return {
+      active: false
+    };
+  },
+  props: {
+    name: {
+      type: String | Number,
+      required: true
+    }
+  },
+  computed: {
+    classes: function classes() {
+      return {
+        active: this.active
+      };
+    }
+  },
+  created: function created() {
+    var _this = this;
+
+    this.eventBus.$on('update:selected', function (name) {
+      _this.active = name === _this.name;
+    });
+  }
+};
+exports.default = _default;
+        var $afb4c8 = exports.default || module.exports;
+      
+      if (typeof $afb4c8 === 'function') {
+        $afb4c8 = $afb4c8.options;
+      }
+    
+        /* template */
+        Object.assign($afb4c8, (function () {
+          var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.active)?_c('div',{staticClass:"tabs-pane",class:_vm.classes},[_vm._t("default")],2):_vm._e()}
+var staticRenderFns = []
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-afb4c8",
+            functional: undefined
+          };
+        })());
+      
+},{}],"eztQ":[function(require,module,exports) {
 "use strict";
 
 var _vue = _interopRequireDefault(require("vue"));
 
-var _col = _interopRequireDefault(require("../src/col"));
+var _tabs = _interopRequireDefault(require("../src/tabs"));
+
+var _tabsHead = _interopRequireDefault(require("../src/tabs-head"));
+
+var _tabsBody = _interopRequireDefault(require("../src/tabs-body"));
+
+var _tabsItem = _interopRequireDefault(require("../src/tabs-item"));
+
+var _tabsPane = _interopRequireDefault(require("../src/tabs-pane"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var expect = chai.expect;
 _vue.default.config.productionTip = false;
 _vue.default.config.devtools = false;
-describe('Col', function () {
+
+_vue.default.component('g-tabs', _tabs.default);
+
+_vue.default.component('g-tabs-head', _tabsHead.default);
+
+_vue.default.component('g-tabs-body', _tabsBody.default);
+
+_vue.default.component('g-tabs-item', _tabsItem.default);
+
+_vue.default.component('g-tabs-pane', _tabsPane.default);
+
+describe('Tabs', function () {
   it('存在.', function () {
-    expect(_col.default).to.exist;
+    expect(_tabs.default).to.exist;
   });
-  it('接收 span 属性', function () {
+  it('接受 selected 属性', function (done) {
     var div = document.createElement('div');
     document.body.appendChild(div);
-
-    var Constructor = _vue.default.extend(_col.default);
-
-    var vm = new Constructor({
-      propsData: {
-        span: 1
-      }
-    }).$mount(div);
-    var element = vm.$el;
-    expect(element.classList.contains('col-1')).to.eq(true);
-    div.remove();
-    vm.$destroy();
+    div.innerHTML = "\n      <g-tabs selected=\"finance\">\n        <g-tabs-head>\n          <g-tabs-item name=\"woman\"> \u7F8E\u5973 </g-tabs-item>\n          <g-tabs-item name=\"finance\"> \u8D22\u7ECF </g-tabs-item>\n          <g-tabs-item name=\"sports\"> \u4F53\u80B2 </g-tabs-item>\n        </g-tabs-head>\n        <g-tabs-body>\n          <g-tabs-pane name=\"woman\"> \u7F8E\u5973\u76F8\u5173\u8D44\u8BAF </g-tabs-pane>\n          <g-tabs-pane name=\"finance\"> \u8D22\u7ECF\u76F8\u5173\u8D44\u8BAF </g-tabs-pane>\n          <g-tabs-pane name=\"sports\"> \u4F53\u80B2\u76F8\u5173\u8D44\u8BAF </g-tabs-pane>\n        </g-tabs-body>\n      </g-tabs>\n    ";
+    var vm = new _vue.default({
+      el: div
+    });
+    vm.$nextTick(function () {
+      var x = vm.$el.querySelector(".tabs-item[data-name=\"finance\"]");
+      expect(x.classList.contains('active')).to.be.true;
+      done();
+    });
   });
-  it('接收 offset 属性', function () {
-    var div = document.createElement('div');
-    document.body.appendChild(div);
-
-    var Constructor = _vue.default.extend(_col.default);
-
-    var vm = new Constructor({
-      propsData: {
-        offset: 1
-      }
-    }).$mount(div);
-    var element = vm.$el;
-    expect(element.classList.contains('offset-1')).to.eq(true);
-    div.remove();
-    vm.$destroy();
-  });
+  it('可以接受 direction prop', function () {});
 });
-},{"vue":"ApMz","../src/col":"2sOC"}]},{},["FIP2"], null)
-//# sourceMappingURL=/col.test.js.map
+},{"vue":"ApMz","../src/tabs":"n6Xd","../src/tabs-head":"Q07j","../src/tabs-body":"Ydtc","../src/tabs-item":"albi","../src/tabs-pane":"vREI"}]},{},["eztQ"], null)
+//# sourceMappingURL=/tabs.test.js.map

@@ -131,7 +131,7 @@ if ("production" === 'production') {
 } else {
   module.exports = require('./vue.common.dev.js');
 }
-},{"./vue.common.prod.js":"BydX"}],"2sOC":[function(require,module,exports) {
+},{"./vue.common.prod.js":"BydX"}],"Ahjv":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -139,13 +139,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+var _vue = _interopRequireDefault(require("vue"));
 
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
-
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //
 //
@@ -153,177 +149,242 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 //
 //
 //
-//
-//
-//
-//
-//
-var validator = function validator(value) {
-  var keys = Object.keys(value);
-  var valid = true;
-  keys.forEach(function (key) {
-    if (!['sapn', 'offset'].includes(key)) {
-      valid = false;
-    }
-  });
-  return valid;
-};
-
 var _default = {
-  name: "GuluCol",
+  name: "GuluCollapse",
   props: {
-    span: {
-      type: [Number, String]
+    single: {
+      type: Boolean,
+      default: false
     },
-    offset: {
-      type: [Number, String]
-    } // phone:{
-    //   type:Object,
-    //   validator(value){
-    //     keys=Object.keys(value)
-    //    let valid=true
-    //    keys.forEach(key=>{
-    //      if(!['span','offset'].includes(key)){
-    //        valid=false
-    //      }
-    //    })
-    //    return valid
-    //   }
-    // } 
-
-  },
-  methods: {
-    createClasses: function createClasses(obj) {
-      var str = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
-
-      if (!obj) {
-        return [];
-      }
-
-      var array = [];
-
-      if (obj.span) {
-        array.push("col-".concat(str).concat(obj.span));
-      }
-
-      if (obj.offset) {
-        array.push("offset-".concat(str).concat(obj.offset));
-      }
-
-      return array;
-    }
-  },
-  computed: {
-    colStyle: function colStyle() {
-      return {
-        paddingLeft: this.gutter / 2 + 'px',
-        paddingRight: this.gutter / 2 + 'px'
-      };
-    },
-    colClass: function colClass() {
-      var span = this.span,
-          offset = this.offset,
-          ipad = this.ipad,
-          narrowPc = this.narrowPc,
-          pc = this.pc,
-          widePc = this.widePc;
-      var createClasses = this.createClasses;
-      return [].concat(_toConsumableArray(createClasses({
-        span: span,
-        offset: offset
-      })), _toConsumableArray(createClasses(ipad, 'ipad-')), _toConsumableArray(createClasses(narrowPc, 'narrow-pc-')), _toConsumableArray(createClasses(pc, 'pc-')), _toConsumableArray(createClasses(widePc, 'wide-pc-')));
+    selected: {
+      type: Array
     }
   },
   data: function data() {
     return {
-      gutter: 0
+      eventBus: new _vue.default()
     };
+  },
+  provide: function provide() {
+    return {
+      eventBus: this.eventBus
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    this.eventBus.$emit('update:selected', this.selected);
+    this.eventBus.$on('update:addSelected', function (name) {
+      var selectedCopy = JSON.parse(JSON.stringify(_this.selected));
+
+      if (_this.single) {
+        selectedCopy = [name];
+      } else {
+        selectedCopy.push(name);
+      }
+
+      _this.eventBus.$emit('update:selected', selectedCopy);
+
+      _this.$emit('update:selected', selectedCopy);
+    });
+    this.eventBus.$on('update:removeSelected', function (name) {
+      var selectedCopy = JSON.parse(JSON.stringify(_this.selected));
+      var index = selectedCopy.indexOf(name);
+      selectedCopy.splice(index, 1);
+
+      _this.eventBus.$emit('update:selected', selectedCopy);
+
+      _this.$emit('update:selected', selectedCopy);
+    });
   }
 };
 exports.default = _default;
-<<<<<<< HEAD
-        var $424565 = exports.default || module.exports;
+        var $9c827e = exports.default || module.exports;
       
-      if (typeof $424565 === 'function') {
-        $424565 = $424565.options;
+      if (typeof $9c827e === 'function') {
+        $9c827e = $9c827e.options;
       }
     
         /* template */
-        Object.assign($424565, (function () {
-=======
-        var $f6806d = exports.default || module.exports;
-      
-      if (typeof $f6806d === 'function') {
-        $f6806d = $f6806d.options;
-      }
-    
-        /* template */
-        Object.assign($f6806d, (function () {
->>>>>>> 3ea45ab7fe528f0eb303c7cac1f21f9d6cc153b4
-          var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"col",class:_vm.colClass,style:(_vm.colStyle)},[_c('div',{staticStyle:{"border":"1px solid green","height":"100px"}},[_vm._t("default")],2)])}
+        Object.assign($9c827e, (function () {
+          var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"collapse"},[_vm._t("default")],2)}
 var staticRenderFns = []
 
           return {
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-<<<<<<< HEAD
-            _scopeId: "data-v-424565",
-=======
-            _scopeId: "data-v-f6806d",
->>>>>>> 3ea45ab7fe528f0eb303c7cac1f21f9d6cc153b4
+            _scopeId: "data-v-9c827e",
             functional: undefined
           };
         })());
       
-},{}],"FIP2":[function(require,module,exports) {
+},{"vue":"ApMz"}],"8HX7":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: "GuluCollapseItem",
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    name: {
+      type: String,
+      required: true
+    }
+  },
+  data: function data() {
+    return {
+      open: false
+    };
+  },
+  inject: ['eventBus'],
+  mounted: function mounted() {
+    var _this = this;
+
+    this.eventBus && this.eventBus.$on('update:selected', function (names) {
+      if (names.indexOf(_this.name) >= 0) {
+        _this.open = true;
+      } else {
+        _this.open = false;
+      }
+    });
+  },
+  methods: {
+    toggle: function toggle() {
+      if (this.open) {
+        this.eventBus && this.eventBus.$emit('update:removeSelected', this.name);
+      } else {
+        this.eventBus && this.eventBus.$emit('update:addSelected', this.name);
+      }
+    }
+  }
+};
+exports.default = _default;
+        var $b1bc33 = exports.default || module.exports;
+      
+      if (typeof $b1bc33 === 'function') {
+        $b1bc33 = $b1bc33.options;
+      }
+    
+        /* template */
+        Object.assign($b1bc33, (function () {
+          var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"collapseItem"},[_c('div',{staticClass:"title",attrs:{"data-name":_vm.name},on:{"click":_vm.toggle}},[_vm._v("\n    "+_vm._s(_vm.title)+"\n  ")]),_vm._v(" "),(_vm.open)?_c('div',{ref:"content",staticClass:"content"},[_vm._t("default")],2):_vm._e()])}
+var staticRenderFns = []
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-b1bc33",
+            functional: undefined
+          };
+        })());
+      
+},{}],"PC5E":[function(require,module,exports) {
 "use strict";
 
 var _vue = _interopRequireDefault(require("vue"));
 
-var _col = _interopRequireDefault(require("../src/col"));
+var _collapse = _interopRequireDefault(require("../src/collapse"));
+
+var _collapseItem = _interopRequireDefault(require("../src/collapse-item"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var expect = chai.expect;
 _vue.default.config.productionTip = false;
 _vue.default.config.devtools = false;
-describe('Col', function () {
+describe('Collapse', function () {
   it('存在.', function () {
-    expect(_col.default).to.exist;
+    expect(_collapse.default).to.exist;
   });
-  it('接收 span 属性', function () {
+  it('接受 selected 属性', function (done) {
+    _vue.default.component('g-collapse', _collapse.default);
+
+    _vue.default.component('g-collapse-item', _collapseItem.default);
+
     var div = document.createElement('div');
     document.body.appendChild(div);
-
-    var Constructor = _vue.default.extend(_col.default);
-
-    var vm = new Constructor({
-      propsData: {
-        span: 1
+    div.innerHTML = "\n        <g-collapse :selected=\"xxx\">\n          <g-collapse-item title=\"\u6807\u98981\" name=\"1\"><span id=\"content-1\">1</span></g-collapse-item>\n          <g-collapse-item title=\"\u6807\u98982\" name=\"2\"><span id=\"content-2\">2</span></g-collapse-item>\n          <g-collapse-item title=\"\u6807\u98983\" name=\"3\"><span id=\"content-3\">3</span></g-collapse-item>\n        </g-collapse>\n    ";
+    var vm = new _vue.default({
+      el: div,
+      data: {
+        xxx: ['1', '2']
       }
-    }).$mount(div);
-    var element = vm.$el;
-    expect(element.classList.contains('col-1')).to.eq(true);
-    div.remove();
-    vm.$destroy();
+    });
+    setTimeout(function () {
+      expect(vm.$el.querySelector('#content-1')).to.exist;
+      expect(vm.$el.querySelector('#content-2')).to.exist;
+      expect(vm.$el.querySelector('#content-3')).to.not.exist;
+      done();
+    });
   });
-  it('接收 offset 属性', function () {
+  it('接受 single 属性', function (done) {
+    _vue.default.component('g-collapse', _collapse.default);
+
+    _vue.default.component('g-collapse-item', _collapseItem.default);
+
     var div = document.createElement('div');
     document.body.appendChild(div);
-
-    var Constructor = _vue.default.extend(_col.default);
-
-    var vm = new Constructor({
-      propsData: {
-        offset: 1
+    div.innerHTML = "\n        <g-collapse :selected.sync=\"xxx\" single>\n          <g-collapse-item title=\"\u6807\u98981\" name=\"1\"><span id=\"content-1\">1</span></g-collapse-item>\n          <g-collapse-item title=\"\u6807\u98982\" name=\"2\"><span id=\"content-2\">2</span></g-collapse-item>\n          <g-collapse-item title=\"\u6807\u98983\" name=\"3\"><span id=\"content-3\">3</span></g-collapse-item>\n        </g-collapse>\n    ";
+    var vm = new _vue.default({
+      el: div,
+      data: {
+        xxx: ['1']
       }
-    }).$mount(div);
-    var element = vm.$el;
-    expect(element.classList.contains('offset-1')).to.eq(true);
-    div.remove();
-    vm.$destroy();
+    });
+    setTimeout(function () {
+      vm.$el.querySelector('[data-name="2"]').click();
+      setTimeout(function () {
+        expect(vm.$el.querySelector('#content-1')).to.not.exist;
+        expect(vm.$el.querySelector('#content-2')).to.exist;
+        done();
+      });
+    });
+  });
+  it('触发 update:selected 事件', function (done) {
+    _vue.default.component('g-collapse', _collapse.default);
+
+    _vue.default.component('g-collapse-item', _collapseItem.default);
+
+    var div = document.createElement('div');
+    document.body.appendChild(div);
+    div.innerHTML = "\n        <g-collapse :selected=\"xxx\" @update:selected=\"onSelect\">\n          <g-collapse-item title=\"\u6807\u98981\" name=\"1\"><span id=\"content-1\">1</span></g-collapse-item>\n          <g-collapse-item title=\"\u6807\u98982\" name=\"2\"><span id=\"content-2\">2</span></g-collapse-item>\n          <g-collapse-item title=\"\u6807\u98983\" name=\"3\"><span id=\"content-3\">3</span></g-collapse-item>\n        </g-collapse>\n    ";
+    var callback = sinon.fake();
+    var vm = new _vue.default({
+      el: div,
+      data: {
+        xxx: ['1']
+      },
+      methods: {
+        onSelect: callback
+      }
+    });
+    setTimeout(function () {
+      vm.$el.querySelector('[data-name="2"]').click();
+      setTimeout(function () {
+        expect(callback).to.have.been.called;
+        done();
+      });
+    });
   });
 });
-},{"vue":"ApMz","../src/col":"2sOC"}]},{},["FIP2"], null)
-//# sourceMappingURL=/col.test.js.map
+},{"vue":"ApMz","../src/collapse":"Ahjv","../src/collapse-item":"8HX7"}]},{},["PC5E"], null)
+//# sourceMappingURL=/collapse.test.js.map

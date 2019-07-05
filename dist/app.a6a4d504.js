@@ -13503,25 +13503,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//构造组件的选项
 var _default = {
-  name: "GuluToast",
+  name: 'GuluToast',
   props: {
     autoClose: {
       type: [Boolean, Number],
-      default: true,
+      default: 5,
       validator: function validator(value) {
-        if (value === false || typeof value === 'number') {
-          return true;
-        } else {
-          return false;
-        }
+        return value === false || typeof value === 'number';
       }
     },
     closeButton: {
       type: Object,
       default: function _default() {
         return {
-          text: "关闭",
+          text: '关闭',
           callback: undefined
         };
       }
@@ -13532,18 +13530,15 @@ var _default = {
     },
     position: {
       type: String,
-      default: "middle",
+      default: 'top',
       validator: function validator(value) {
-        return ["top", "bottom", "middle"].indexOf(value) >= 0;
+        return ['top', 'bottom', 'middle'].indexOf(value) >= 0;
       }
     }
   },
-  created: function created() {
-    console.log(this.closeButton);
-  },
   mounted: function mounted() {
-    this.execAutoClose();
     this.updateStyles();
+    this.execAutoClose();
   },
   computed: {
     toastClasses: function toastClasses() {
@@ -13554,9 +13549,9 @@ var _default = {
     updateStyles: function updateStyles() {
       var _this = this;
 
-      // 这个方法不太好
       this.$nextTick(function () {
-        _this.$refs.line.style.height = "{this.$refs.wrapper.getBoundingClientRect().height}px";
+        _this.$refs.line.style.height = "".concat(_this.$refs.toast.getBoundingClientRect().height, "px");
+        console.log(_this.$refs.line.style.height);
       });
     },
     execAutoClose: function execAutoClose() {
@@ -13570,14 +13565,14 @@ var _default = {
     },
     close: function close() {
       this.$el.remove();
-      this.$emit("beforeClose");
+      this.$emit('close');
       this.$destroy();
     },
     onClickClose: function onClickClose() {
       this.close();
 
-      if (this.closeButton && typeof this.closeButton.callback === "function") {
-        this.closeButton.callback(this);
+      if (this.closeButton && typeof this.closeButton.callback === 'function') {
+        this.closeButton.callback(this); //this === toast实例
       }
     }
   }
@@ -13596,7 +13591,7 @@ exports.default = _default;
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "wrapper", class: _vm.toastClasses }, [
-    _c("div", { ref: "wrapper", staticClass: "toast" }, [
+    _c("div", { ref: "toast", staticClass: "toast" }, [
       _c(
         "div",
         { staticClass: "message" },
@@ -13616,7 +13611,7 @@ exports.default = _default;
         ? _c(
             "span",
             { staticClass: "close", on: { click: _vm.onClickClose } },
-            [_vm._v(_vm._s(_vm.closeButton.text))]
+            [_vm._v("\n      " + _vm._s(_vm.closeButton.text) + "\n    ")]
           )
         : _vm._e()
     ])
@@ -13702,7 +13697,225 @@ function createToast(_ref) {
   document.body.appendChild(toast.$el);
   return toast;
 }
-},{"./toast":"src/toast.vue"}],"node_modules/util/support/isBufferBrowser.js":[function(require,module,exports) {
+},{"./toast":"src/toast.vue"}],"src/popover.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: "GuluPopover",
+  props: {
+    position: {
+      type: String,
+      default: 'top',
+      validator: function validator(value) {
+        return ['top', 'bottom', 'left', 'right'].indexOf(value) >= 0;
+      }
+    },
+    trigger: {
+      type: String,
+      default: 'click',
+      validator: function validator(value) {
+        return ['click', 'hover'].indexOf(value) >= 0;
+      }
+    }
+  },
+  data: function data() {
+    return {
+      visible: false
+    };
+  },
+  mounted: function mounted() {
+    if (this.trigger === 'click') {
+      this.$refs.popover.addEventListener('click', this.onClick);
+    } else {
+      this.$refs.popover.addEventListener('mouseenter', this.open);
+      this.$refs.popover.addEventListener('mouseleave', this.close);
+    }
+  },
+  destroyed: function destroyed() {
+    if (this.trigger === 'click') {
+      this.$refs.popover.removeEventListener('click', this.onClick);
+    } else {
+      this.$refs.popover.removeEventListener('mouseenter', this.open);
+      this.$refs.popover.removeEventListener('mouseleave', this.close);
+    }
+  },
+  computed: {
+    openEvent: function openEvent() {
+      if (this.trigger === 'click') {
+        return 'click';
+      } else {
+        return 'mouseenter';
+      }
+    },
+    closeEvent: function closeEvent() {
+      if (this.trigger === 'click') {
+        return 'click';
+      } else {
+        return 'mouseleave';
+      }
+    }
+  },
+  methods: {
+    positionContent: function positionContent() {
+      var _this$$refs = this.$refs,
+          contentWrapper = _this$$refs.contentWrapper,
+          triggerWrapper = _this$$refs.triggerWrapper;
+      document.body.appendChild(contentWrapper);
+
+      var _triggerWrapper$getBo = triggerWrapper.getBoundingClientRect(),
+          width = _triggerWrapper$getBo.width,
+          height = _triggerWrapper$getBo.height,
+          top = _triggerWrapper$getBo.top,
+          left = _triggerWrapper$getBo.left;
+
+      var _contentWrapper$getBo = contentWrapper.getBoundingClientRect(),
+          height2 = _contentWrapper$getBo.height;
+
+      var positions = {
+        top: {
+          top: top + window.scrollY,
+          left: left + window.scrollX
+        },
+        bottom: {
+          top: top + height + window.scrollY,
+          left: left + window.scrollX
+        },
+        left: {
+          top: top + window.scrollY + (height - height2) / 2,
+          left: left + window.scrollX
+        },
+        right: {
+          top: top + window.scrollY + (height - height2) / 2,
+          left: left + window.scrollX + width
+        }
+      };
+      contentWrapper.style.left = positions[this.position].left + 'px';
+      contentWrapper.style.top = positions[this.position].top + 'px';
+    },
+    onClickDocument: function onClickDocument(e) {
+      if (this.$refs.popover && (this.$refs.popover === e.target || this.$refs.popover.contains(e.target))) {
+        return;
+      }
+
+      if (this.$refs.contentWrapper && (this.$refs.contentWrapper === e.target || this.$refs.contentWrapper.contains(e.target))) {
+        return;
+      }
+
+      this.close();
+    },
+    open: function open() {
+      var _this = this;
+
+      this.visible = true;
+      this.$nextTick(function () {
+        _this.positionContent();
+
+        document.addEventListener('click', _this.onClickDocument);
+      });
+    },
+    close: function close() {
+      this.visible = false;
+      document.removeEventListener('click', this.onClickDocument);
+    },
+    onClick: function onClick(event) {
+      if (this.$refs.triggerWrapper.contains(event.target)) {
+        if (this.visible === true) {
+          this.close();
+        } else {
+          this.open();
+        }
+      }
+    }
+  }
+};
+exports.default = _default;
+        var $d985f7 = exports.default || module.exports;
+      
+      if (typeof $d985f7 === 'function') {
+        $d985f7 = $d985f7.options;
+      }
+    
+        /* template */
+        Object.assign($d985f7, (function () {
+          var render = function() {
+  var _obj
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { ref: "popover", staticClass: "popover" }, [
+    _vm.visible
+      ? _c(
+          "div",
+          {
+            ref: "contentWrapper",
+            staticClass: "content-wrapper",
+            class: ((_obj = {}),
+            (_obj["position-" + _vm.position] = true),
+            _obj)
+          },
+          [_vm._t("content", null, { close: _vm.close })],
+          2
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "span",
+      { ref: "triggerWrapper", staticStyle: { display: "inline-block" } },
+      [_vm._t("default")],
+      2
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-d985f7",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$d985f7', $d985f7);
+          } else {
+            api.reload('$d985f7', $d985f7);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"node_modules/util/support/isBufferBrowser.js":[function(require,module,exports) {
 module.exports = function isBuffer(arg) {
   return arg && typeof arg === 'object'
     && typeof arg.copy === 'function'
@@ -14664,7 +14877,246 @@ function callbackify(original) {
 }
 
 exports.callbackify = callbackify;
-},{"./support/isBuffer":"node_modules/util/support/isBufferBrowser.js","inherits":"node_modules/inherits/inherits_browser.js","process":"node_modules/process/browser.js"}],"src/app.js":[function(require,module,exports) {
+},{"./support/isBuffer":"node_modules/util/support/isBufferBrowser.js","inherits":"node_modules/inherits/inherits_browser.js","process":"node_modules/process/browser.js"}],"src/collapse.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _vue = _interopRequireDefault(require("vue"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: "GuluCollapse",
+  props: {
+    single: {
+      type: Boolean,
+      default: false
+    },
+    selected: {
+      type: Array
+    }
+  },
+  data: function data() {
+    return {
+      eventBus: new _vue.default()
+    };
+  },
+  provide: function provide() {
+    return {
+      eventBus: this.eventBus
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    this.eventBus.$emit('update:selected', this.selected);
+    this.eventBus.$on('update:addSelected', function (name) {
+      var selectedCopy = JSON.parse(JSON.stringify(_this.selected));
+
+      if (_this.single) {
+        selectedCopy = [name];
+      } else {
+        selectedCopy.push(name);
+      }
+
+      _this.eventBus.$emit('update:selected', selectedCopy);
+
+      _this.$emit('update:selected', selectedCopy);
+    });
+    this.eventBus.$on('update:removeSelected', function (name) {
+      var selectedCopy = JSON.parse(JSON.stringify(_this.selected));
+      var index = selectedCopy.indexOf(name);
+      selectedCopy.splice(index, 1);
+
+      _this.eventBus.$emit('update:selected', selectedCopy);
+
+      _this.$emit('update:selected', selectedCopy);
+    });
+  }
+};
+exports.default = _default;
+        var $9c827e = exports.default || module.exports;
+      
+      if (typeof $9c827e === 'function') {
+        $9c827e = $9c827e.options;
+      }
+    
+        /* template */
+        Object.assign($9c827e, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "collapse" }, [_vm._t("default")], 2)
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-9c827e",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$9c827e', $9c827e);
+          } else {
+            api.reload('$9c827e', $9c827e);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"vue":"node_modules/vue/dist/vue.common.js","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js"}],"src/collapse-item.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: "GuluCollapseItem",
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    name: {
+      type: String,
+      required: true
+    }
+  },
+  data: function data() {
+    return {
+      open: false
+    };
+  },
+  inject: ['eventBus'],
+  mounted: function mounted() {
+    var _this = this;
+
+    this.eventBus && this.eventBus.$on('update:selected', function (names) {
+      if (names.indexOf(_this.name) >= 0) {
+        _this.open = true;
+      } else {
+        _this.open = false;
+      }
+    });
+  },
+  methods: {
+    toggle: function toggle() {
+      if (this.open) {
+        this.eventBus && this.eventBus.$emit('update:removeSelected', this.name);
+      } else {
+        this.eventBus && this.eventBus.$emit('update:addSelected', this.name);
+      }
+    }
+  }
+};
+exports.default = _default;
+        var $b1bc33 = exports.default || module.exports;
+      
+      if (typeof $b1bc33 === 'function') {
+        $b1bc33 = $b1bc33.options;
+      }
+    
+        /* template */
+        Object.assign($b1bc33, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "collapseItem" }, [
+    _c(
+      "div",
+      {
+        staticClass: "title",
+        attrs: { "data-name": _vm.name },
+        on: { click: _vm.toggle }
+      },
+      [_vm._v("\n    " + _vm._s(_vm.title) + "\n  ")]
+    ),
+    _vm._v(" "),
+    _vm.open
+      ? _c(
+          "div",
+          { ref: "content", staticClass: "content" },
+          [_vm._t("default")],
+          2
+        )
+      : _vm._e()
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-b1bc33",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$b1bc33', $b1bc33);
+          } else {
+            api.reload('$b1bc33', $b1bc33);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/app.js":[function(require,module,exports) {
 "use strict";
 
 var _vue = _interopRequireDefault(require("vue"));
@@ -14693,7 +15145,13 @@ var _footer = _interopRequireDefault(require("./footer"));
 
 var _plugin = _interopRequireDefault(require("./plugin"));
 
+var _popover = _interopRequireDefault(require("./popover"));
+
 var _util = require("util");
+
+var _collapse = _interopRequireDefault(require("./collapse"));
+
+var _collapseItem = _interopRequireDefault(require("./collapse-item"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -14720,7 +15178,13 @@ _vue.default.component('g-sideer', _sider.default);
 
 _vue.default.component('g-content', _content.default);
 
-_vue.default.component('g-footer', _footer.default); // Vue.component('g-toast',Toast)
+_vue.default.component('g-footer', _footer.default);
+
+_vue.default.component('g-popover', _popover.default);
+
+_vue.default.component('g-collapse', _collapse.default);
+
+_vue.default.component('g-collapse-item', _collapseItem.default); // Vue.component('g-toast',Toast)
 
 
 _vue.default.use(_plugin.default);
@@ -14851,7 +15315,7 @@ new _vue.default({
 //   button.click()
 //   expect(spy).to.have.been.called()
 // }
-},{"vue":"node_modules/vue/dist/vue.common.js","./button":"src/button.vue","./icon":"src/icon.vue","./button-group":"src/button-group.vue","./input":"src/input.vue","./col":"src/col.vue","./row":"src/row.vue","./layout":"src/layout.vue","./header":"src/header.vue","./sider":"src/sider.vue","./content":"src/content.vue","./footer":"src/footer.vue","./plugin":"src/plugin.js","util":"node_modules/util/util.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"vue":"node_modules/vue/dist/vue.common.js","./button":"src/button.vue","./icon":"src/icon.vue","./button-group":"src/button-group.vue","./input":"src/input.vue","./col":"src/col.vue","./row":"src/row.vue","./layout":"src/layout.vue","./header":"src/header.vue","./sider":"src/sider.vue","./content":"src/content.vue","./footer":"src/footer.vue","./plugin":"src/plugin.js","./popover":"src/popover.vue","util":"node_modules/util/util.js","./collapse":"src/collapse.vue","./collapse-item":"src/collapse-item.vue"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -14879,7 +15343,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56119" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53558" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

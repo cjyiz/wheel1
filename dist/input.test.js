@@ -204,6 +204,7 @@ var _default = {
   props: ['name']
 };
 exports.default = _default;
+<<<<<<< HEAD
         var $6bc443 = exports.default || module.exports;
       
       if (typeof $6bc443 === 'function') {
@@ -212,6 +213,16 @@ exports.default = _default;
     
         /* template */
         Object.assign($6bc443, (function () {
+=======
+        var $cbec4d = exports.default || module.exports;
+      
+      if (typeof $cbec4d === 'function') {
+        $cbec4d = $cbec4d.options;
+      }
+    
+        /* template */
+        Object.assign($cbec4d, (function () {
+>>>>>>> 3ea45ab7fe528f0eb303c7cac1f21f9d6cc153b4
           var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('svg',{staticClass:"g-icon"},[_c('use',{attrs:{"xlink:href":("#i-" + _vm.name)}})])}
 var staticRenderFns = []
 
@@ -276,6 +287,7 @@ var _default = {
   }
 };
 exports.default = _default;
+<<<<<<< HEAD
         var $9fcd0e = exports.default || module.exports;
       
       if (typeof $9fcd0e === 'function') {
@@ -284,6 +296,16 @@ exports.default = _default;
     
         /* template */
         Object.assign($9fcd0e, (function () {
+=======
+        var $94b3a7 = exports.default || module.exports;
+      
+      if (typeof $94b3a7 === 'function') {
+        $94b3a7 = $94b3a7.options;
+      }
+    
+        /* template */
+        Object.assign($94b3a7, (function () {
+>>>>>>> 3ea45ab7fe528f0eb303c7cac1f21f9d6cc153b4
           var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"wrapper",class:{error: _vm.error}},[_c('input',{attrs:{"type":"text","disabled":_vm.disabled,"readonly":_vm.readonly},domProps:{"value":_vm.value},on:{"change":function($event){return _vm.$emit('change',$event.target.value)},"input":function($event){return _vm.$emit('input',$event.target.value)},"focus":function($event){return _vm.$emit('focus',$event.target.value)},"blur":function($event){return _vm.$emit('blur',$event.target.value)}}}),_vm._v(" "),(_vm.error)?[_c('icon',{staticClass:"icon-error",attrs:{"name":"error"}}),_vm._v(" "),_c('span',{staticClass:"error-message"},[_vm._v(_vm._s(_vm.error))])]:_vm._e()],2)}
 var staticRenderFns = []
 
@@ -291,7 +313,11 @@ var staticRenderFns = []
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
+<<<<<<< HEAD
             _scopeId: "data-v-9fcd0e",
+=======
+            _scopeId: "data-v-94b3a7",
+>>>>>>> 3ea45ab7fe528f0eb303c7cac1f21f9d6cc153b4
             functional: undefined
           };
         })());
