@@ -1,4 +1,5 @@
 module.exports = {
+    base:'/wheel1/',
     title: '浪子',
     description: '浪子的天下',
     themeConfig:{
