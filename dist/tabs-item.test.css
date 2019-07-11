@@ -1,17 +1,17 @@
-.tabs-head[data-v-b4c1de] {
+.tabs-head[data-v-42dae9] {
   display: flex;
   height: 40px;
   justify-content: flex-start;
   position: relative;
   border-bottom: 1px solid #ddd;
 }
-.tabs-head > .line[data-v-b4c1de] {
+.tabs-head > .line[data-v-42dae9] {
   position: absolute;
   bottom: 0;
   border-bottom: 1px solid blue;
   transition: all 350ms;
 }
-.tabs-head > .actions-wrapper[data-v-b4c1de] {
+.tabs-head > .actions-wrapper[data-v-42dae9] {
   margin-left: auto;
   display: flex;
   align-items: center;
@@ -20,7 +20,7 @@
 }
 .tabs-body {
 }
-.tabs-item[data-v-fd5ae4] {
+.tabs-item[data-v-03642c] {
   flex-shrink: 0;
   padding: 0 1em;
   cursor: pointer;
@@ -28,14 +28,14 @@
   display: flex;
   align-items: center;
 }
-.tabs-item.active[data-v-fd5ae4] {
+.tabs-item.active[data-v-03642c] {
   color: blue;
   font-weight: bold;
 }
-.tabs-item.disabled[data-v-fd5ae4] {
+.tabs-item.disabled[data-v-03642c] {
   color: grey;
   cursor: not-allowed;
 }
-.tabs-pane[data-v-afb4c8] {
+.tabs-pane[data-v-e3acb5] {
   padding: 1em;
 }

@@ -229,7 +229,6 @@ var _default = {
   }
 };
 exports.default = _default;
-<<<<<<< HEAD
         var $467bfe = exports.default || module.exports;
       
       if (typeof $467bfe === 'function') {
@@ -238,16 +237,6 @@ exports.default = _default;
     
         /* template */
         Object.assign($467bfe, (function () {
-=======
-        var $bb285f = exports.default || module.exports;
-      
-      if (typeof $bb285f === 'function') {
-        $bb285f = $bb285f.options;
-      }
-    
-        /* template */
-        Object.assign($bb285f, (function () {
->>>>>>> 3ea45ab7fe528f0eb303c7cac1f21f9d6cc153b4
           var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"wrapper",class:_vm.toastClasses},[_c('div',{ref:"toast",staticClass:"toast"},[_c('div',{staticClass:"message"},[(!_vm.enableHtml)?_vm._t("default"):_c('div',{domProps:{"innerHTML":_vm._s(_vm.$slots.default[0])}})],2),_vm._v(" "),_c('div',{ref:"line",staticClass:"line"}),_vm._v(" "),(_vm.closeButton)?_c('span',{staticClass:"close",on:{"click":_vm.onClickClose}},[_vm._v("\n      "+_vm._s(_vm.closeButton.text)+"\n    ")]):_vm._e()])])}
 var staticRenderFns = []
 
@@ -255,11 +244,7 @@ var staticRenderFns = []
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-<<<<<<< HEAD
             _scopeId: "data-v-467bfe",
-=======
-            _scopeId: "data-v-bb285f",
->>>>>>> 3ea45ab7fe528f0eb303c7cac1f21f9d6cc153b4
             functional: undefined
           };
         })());
@@ -281,20 +266,22 @@ describe('Toast', function () {
     expect(_toast.default).to.exist;
   });
   describe('props', function () {
-    // it('接受 autoClose', (done) => {
-    //   let div = document.createElement('div')
-    //   document.body.appendChild(div)
-    //   const Constructor = Vue.extend(Toast)
-    //   const vm = new Constructor({
-    //     propsData: {
-    //       autoClose: 1,
-    //     }
-    //   }).$mount(div)
-    //   vm.$on('close', () => {
-    //     expect(document.body.contains(vm.$el)).to.eq(false)
-    //     done()
-    //   })
-    // })
+    it('接受 autoClose', function (done) {
+      var div = document.createElement('div');
+      document.body.appendChild(div);
+
+      var Constructor = _vue.default.extend(_toast.default);
+
+      var vm = new Constructor({
+        propsData: {
+          autoClose: 1
+        }
+      }).$mount(div);
+      vm.$on('close', function () {
+        expect(document.body.contains(vm.$el)).to.eq(false);
+        done();
+      });
+    });
     it('接受 closeButton', function () {
       var callback = sinon.fake();
 

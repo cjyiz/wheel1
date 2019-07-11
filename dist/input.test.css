@@ -3,48 +3,29 @@
   height: 1em;
   margin-right: 0.3em;
 }
-<<<<<<< HEAD
 .wrapper[data-v-9fcd0e] {
   display: inline-block;
 }
 .wrapper > input[data-v-9fcd0e] {
-=======
-.wrapper[data-v-94b3a7] {
-  display: inline-block;
-}
-.wrapper > input[data-v-94b3a7] {
->>>>>>> 3ea45ab7fe528f0eb303c7cac1f21f9d6cc153b4
   margin: 0px;
   height: 32px;
   border: 1px solid var(--border-color);
   border-radius: 4px;
   padding: 0 8px;
 }
-<<<<<<< HEAD
 .wrapper > input[data-v-9fcd0e]:hover {
   border-color: #7035dd;
 }
 .wrapper > input[data-v-9fcd0e]:focus {
-=======
-.wrapper > input[data-v-94b3a7]:hover {
-  border-color: #7035dd;
-}
-.wrapper > input[data-v-94b3a7]:focus {
->>>>>>> 3ea45ab7fe528f0eb303c7cac1f21f9d6cc153b4
   box-shadow: inset 0 1px 3px #7035dd;
   border-color: #7035dd;
   outline: none;
 }
-<<<<<<< HEAD
 .wrapper > input[disabled][data-v-9fcd0e], .wrapper > input[readonly][data-v-9fcd0e] {
-=======
-.wrapper > input[disabled][data-v-94b3a7], .wrapper > input[readonly][data-v-94b3a7] {
->>>>>>> 3ea45ab7fe528f0eb303c7cac1f21f9d6cc153b4
   border-color: #bbb;
   color: #bbb;
   cursor: not-allowed;
 }
-<<<<<<< HEAD
 .wrapper.error > input[data-v-9fcd0e] {
   border-color: salmon;
 }
@@ -56,18 +37,5 @@
   fill: red;
 }
 .wrapper.error .error-message[data-v-9fcd0e] {
-=======
-.wrapper.error > input[data-v-94b3a7] {
-  border-color: salmon;
-}
-.wrapper.error > input[data-v-94b3a7] :focus {
-  border-color: salmon;
-  box-shadow: inset 0 1px 3px salmon;
-}
-.wrapper.error .icon-error[data-v-94b3a7] {
-  fill: red;
-}
-.wrapper.error .error-message[data-v-94b3a7] {
->>>>>>> 3ea45ab7fe528f0eb303c7cac1f21f9d6cc153b4
   color: red;
 }

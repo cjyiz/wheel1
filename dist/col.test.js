@@ -241,7 +241,6 @@ var _default = {
   }
 };
 exports.default = _default;
-<<<<<<< HEAD
         var $424565 = exports.default || module.exports;
       
       if (typeof $424565 === 'function') {
@@ -250,16 +249,6 @@ exports.default = _default;
     
         /* template */
         Object.assign($424565, (function () {
-=======
-        var $f6806d = exports.default || module.exports;
-      
-      if (typeof $f6806d === 'function') {
-        $f6806d = $f6806d.options;
-      }
-    
-        /* template */
-        Object.assign($f6806d, (function () {
->>>>>>> 3ea45ab7fe528f0eb303c7cac1f21f9d6cc153b4
           var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"col",class:_vm.colClass,style:(_vm.colStyle)},[_c('div',{staticStyle:{"border":"1px solid green","height":"100px"}},[_vm._t("default")],2)])}
 var staticRenderFns = []
 
@@ -267,11 +256,7 @@ var staticRenderFns = []
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-<<<<<<< HEAD
             _scopeId: "data-v-424565",
-=======
-            _scopeId: "data-v-f6806d",
->>>>>>> 3ea45ab7fe528f0eb303c7cac1f21f9d6cc153b4
             functional: undefined
           };
         })());

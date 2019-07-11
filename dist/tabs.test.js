@@ -190,14 +190,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $59aeb3 = exports.default || module.exports;
+        var $4189c4 = exports.default || module.exports;
       
-      if (typeof $59aeb3 === 'function') {
-        $59aeb3 = $59aeb3.options;
+      if (typeof $4189c4 === 'function') {
+        $4189c4 = $4189c4.options;
       }
     
         /* template */
-        Object.assign($59aeb3, (function () {
+        Object.assign($4189c4, (function () {
           var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"tabs"},[_vm._t("default")],2)}
 var staticRenderFns = []
 
@@ -245,14 +245,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $b4c1de = exports.default || module.exports;
+        var $42dae9 = exports.default || module.exports;
       
-      if (typeof $b4c1de === 'function') {
-        $b4c1de = $b4c1de.options;
+      if (typeof $42dae9 === 'function') {
+        $42dae9 = $42dae9.options;
       }
     
         /* template */
-        Object.assign($b4c1de, (function () {
+        Object.assign($42dae9, (function () {
           var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"tabs-head"},[_vm._t("default"),_vm._v(" "),_c('div',{ref:"line",staticClass:"line"}),_vm._v(" "),_c('div',{staticClass:"actions-wrapper"},[_vm._t("actions")],2)],2)}
 var staticRenderFns = []
 
@@ -260,7 +260,7 @@ var staticRenderFns = []
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-b4c1de",
+            _scopeId: "data-v-42dae9",
             functional: undefined
           };
         })());
@@ -283,14 +283,14 @@ var _default = {
   created: function created() {}
 };
 exports.default = _default;
-        var $370bde = exports.default || module.exports;
+        var $49627b = exports.default || module.exports;
       
-      if (typeof $370bde === 'function') {
-        $370bde = $370bde.options;
+      if (typeof $49627b === 'function') {
+        $49627b = $49627b.options;
       }
     
         /* template */
-        Object.assign($370bde, (function () {
+        Object.assign($49627b, (function () {
           var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"tabs-body"},[_vm._t("default")],2)}
 var staticRenderFns = []
 
@@ -363,14 +363,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $fd5ae4 = exports.default || module.exports;
+        var $03642c = exports.default || module.exports;
       
-      if (typeof $fd5ae4 === 'function') {
-        $fd5ae4 = $fd5ae4.options;
+      if (typeof $03642c === 'function') {
+        $03642c = $03642c.options;
       }
     
         /* template */
-        Object.assign($fd5ae4, (function () {
+        Object.assign($03642c, (function () {
           var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"tabs-item",class:_vm.classes,attrs:{"data-name":_vm.name},on:{"click":_vm.onClick}},[_vm._t("default")],2)}
 var staticRenderFns = []
 
@@ -378,7 +378,7 @@ var staticRenderFns = []
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-fd5ae4",
+            _scopeId: "data-v-03642c",
             functional: undefined
           };
         })());
@@ -425,14 +425,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $afb4c8 = exports.default || module.exports;
+        var $e3acb5 = exports.default || module.exports;
       
-      if (typeof $afb4c8 === 'function') {
-        $afb4c8 = $afb4c8.options;
+      if (typeof $e3acb5 === 'function') {
+        $e3acb5 = $e3acb5.options;
       }
     
         /* template */
-        Object.assign($afb4c8, (function () {
+        Object.assign($e3acb5, (function () {
           var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return (_vm.active)?_c('div',{staticClass:"tabs-pane",class:_vm.classes},[_vm._t("default")],2):_vm._e()}
 var staticRenderFns = []
 
@@ -440,7 +440,7 @@ var staticRenderFns = []
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-afb4c8",
+            _scopeId: "data-v-e3acb5",
             functional: undefined
           };
         })());

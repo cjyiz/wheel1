@@ -6,7 +6,9 @@
   "scripts": {
     "start": "npx parcel index.html --no-cache",
     "dev-test": "parcel watch test/* --no-cache & karma start",
-    "test": "parcel build test/* --no-minify && karma start --single-run"
+    "test": "parcel build test/* --no-minify && karma start --single-run",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "repository": {
     "type": "git",
@@ -23,9 +25,12 @@
   "homepage": "https://github.com/cjyiz/wheel1#readme",
   "dependencies": {
     "chai-spies": "^1.0.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0",
     "scss": "^0.2.4",
     "vue": "^2.6.10",
-    "vue-hot-reload-api": "^2.3.3"
+    "vue-hot-reload-api": "^2.3.3",
+    "vuepress": "^1.0.2"
   },
   "devDependencies": {
     "@vue/component-compiler-utils": "^3.0.0",

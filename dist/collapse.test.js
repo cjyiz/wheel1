@@ -199,14 +199,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $9c827e = exports.default || module.exports;
+        var $f53570 = exports.default || module.exports;
       
-      if (typeof $9c827e === 'function') {
-        $9c827e = $9c827e.options;
+      if (typeof $f53570 === 'function') {
+        $f53570 = $f53570.options;
       }
     
         /* template */
-        Object.assign($9c827e, (function () {
+        Object.assign($f53570, (function () {
           var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"collapse"},[_vm._t("default")],2)}
 var staticRenderFns = []
 
@@ -214,7 +214,7 @@ var staticRenderFns = []
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-9c827e",
+            _scopeId: "data-v-f53570",
             functional: undefined
           };
         })());
@@ -277,14 +277,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $b1bc33 = exports.default || module.exports;
+        var $a586ed = exports.default || module.exports;
       
-      if (typeof $b1bc33 === 'function') {
-        $b1bc33 = $b1bc33.options;
+      if (typeof $a586ed === 'function') {
+        $a586ed = $a586ed.options;
       }
     
         /* template */
-        Object.assign($b1bc33, (function () {
+        Object.assign($a586ed, (function () {
           var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"collapseItem"},[_c('div',{staticClass:"title",attrs:{"data-name":_vm.name},on:{"click":_vm.toggle}},[_vm._v("\n    "+_vm._s(_vm.title)+"\n  ")]),_vm._v(" "),(_vm.open)?_c('div',{ref:"content",staticClass:"content"},[_vm._t("default")],2):_vm._e()])}
 var staticRenderFns = []
 
@@ -292,7 +292,7 @@ var staticRenderFns = []
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-b1bc33",
+            _scopeId: "data-v-a586ed",
             functional: undefined
           };
         })());

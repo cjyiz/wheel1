@@ -204,7 +204,6 @@ var _default = {
   props: ['name']
 };
 exports.default = _default;
-<<<<<<< HEAD
         var $6bc443 = exports.default || module.exports;
       
       if (typeof $6bc443 === 'function') {
@@ -213,16 +212,6 @@ exports.default = _default;
     
         /* template */
         Object.assign($6bc443, (function () {
-=======
-        var $cbec4d = exports.default || module.exports;
-      
-      if (typeof $cbec4d === 'function') {
-        $cbec4d = $cbec4d.options;
-      }
-    
-        /* template */
-        Object.assign($cbec4d, (function () {
->>>>>>> 3ea45ab7fe528f0eb303c7cac1f21f9d6cc153b4
           var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('svg',{staticClass:"g-icon"},[_c('use',{attrs:{"xlink:href":("#i-" + _vm.name)}})])}
 var staticRenderFns = []
 
@@ -285,7 +274,6 @@ var _default = {
   }
 };
 exports.default = _default;
-<<<<<<< HEAD
         var $a7c987 = exports.default || module.exports;
       
       if (typeof $a7c987 === 'function') {
@@ -294,16 +282,6 @@ exports.default = _default;
     
         /* template */
         Object.assign($a7c987, (function () {
-=======
-        var $3ba049 = exports.default || module.exports;
-      
-      if (typeof $3ba049 === 'function') {
-        $3ba049 = $3ba049.options;
-      }
-    
-        /* template */
-        Object.assign($3ba049, (function () {
->>>>>>> 3ea45ab7fe528f0eb303c7cac1f21f9d6cc153b4
           var render = function () {
 var _obj;
 var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('button',{staticClass:"g-button",class:( _obj = {}, _obj[("icon-" + _vm.iconPosition)] = true, _obj ),on:{"click":function($event){return _vm.$emit('click')}}},[(_vm.loading)?_c('g-icon',{staticClass:"loading icon",attrs:{"name":"loading"}}):_vm._e(),_vm._v(" "),(_vm.icon && !_vm.loading)?_c('g-icon',{staticClass:"icon",attrs:{"name":_vm.icon}}):_vm._e(),_vm._v(" "),_c('div',{staticClass:"content"},[_vm._t("default")],2)],1)}
@@ -313,11 +291,7 @@ var staticRenderFns = []
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-<<<<<<< HEAD
             _scopeId: "data-v-a7c987",
-=======
-            _scopeId: "data-v-3ba049",
->>>>>>> 3ea45ab7fe528f0eb303c7cac1f21f9d6cc153b4
             functional: undefined
           };
         })());
