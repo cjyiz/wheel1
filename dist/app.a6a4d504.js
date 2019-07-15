@@ -12477,14 +12477,14 @@ var _default = {
   props: ['name']
 };
 exports.default = _default;
-        var $6bc443 = exports.default || module.exports;
+        var $4a1516 = exports.default || module.exports;
       
-      if (typeof $6bc443 === 'function') {
-        $6bc443 = $6bc443.options;
+      if (typeof $4a1516 === 'function') {
+        $4a1516 = $4a1516.options;
       }
     
         /* template */
-        Object.assign($6bc443, (function () {
+        Object.assign($4a1516, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -12513,9 +12513,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$6bc443', $6bc443);
+            api.createRecord('$4a1516', $4a1516);
           } else {
-            api.reload('$6bc443', $6bc443);
+            api.reload('$4a1516', $4a1516);
           }
         }
 
@@ -12576,14 +12576,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $a7c987 = exports.default || module.exports;
+        var $972e1b = exports.default || module.exports;
       
-      if (typeof $a7c987 === 'function') {
-        $a7c987 = $a7c987.options;
+      if (typeof $972e1b === 'function') {
+        $972e1b = $972e1b.options;
       }
     
         /* template */
-        Object.assign($a7c987, (function () {
+        Object.assign($972e1b, (function () {
           var render = function() {
   var _obj
   var _vm = this
@@ -12624,7 +12624,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-a7c987",
+            _scopeId: "data-v-972e1b",
             functional: undefined
           };
         })());
@@ -12637,9 +12637,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$a7c987', $a7c987);
+            api.createRecord('$972e1b', $972e1b);
           } else {
-            api.reload('$a7c987', $a7c987);
+            api.reload('$972e1b', $972e1b);
           }
         }
 
@@ -12706,14 +12706,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $3273f4 = exports.default || module.exports;
+        var $358154 = exports.default || module.exports;
       
-      if (typeof $3273f4 === 'function') {
-        $3273f4 = $3273f4.options;
+      if (typeof $358154 === 'function') {
+        $358154 = $358154.options;
       }
     
         /* template */
-        Object.assign($3273f4, (function () {
+        Object.assign($358154, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -12740,9 +12740,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$3273f4', $3273f4);
+            api.createRecord('$358154', $358154);
           } else {
-            api.reload('$3273f4', $3273f4);
+            api.reload('$358154', $358154);
           }
         }
 
@@ -12805,14 +12805,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $9fcd0e = exports.default || module.exports;
+        var $100b0b = exports.default || module.exports;
       
-      if (typeof $9fcd0e === 'function') {
-        $9fcd0e = $9fcd0e.options;
+      if (typeof $100b0b === 'function') {
+        $100b0b = $100b0b.options;
       }
     
         /* template */
-        Object.assign($9fcd0e, (function () {
+        Object.assign($100b0b, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -12860,7 +12860,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-9fcd0e",
+            _scopeId: "data-v-100b0b",
             functional: undefined
           };
         })());
@@ -12873,9 +12873,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$9fcd0e', $9fcd0e);
+            api.createRecord('$100b0b', $100b0b);
           } else {
-            api.reload('$9fcd0e', $9fcd0e);
+            api.reload('$100b0b', $100b0b);
           }
         }
 
@@ -12996,14 +12996,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $424565 = exports.default || module.exports;
+        var $1105d3 = exports.default || module.exports;
       
-      if (typeof $424565 === 'function') {
-        $424565 = $424565.options;
+      if (typeof $1105d3 === 'function') {
+        $1105d3 = $1105d3.options;
       }
     
         /* template */
-        Object.assign($424565, (function () {
+        Object.assign($1105d3, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -13028,7 +13028,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-424565",
+            _scopeId: "data-v-1105d3",
             functional: undefined
           };
         })());
@@ -13041,9 +13041,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$424565', $424565);
+            api.createRecord('$1105d3', $1105d3);
           } else {
-            api.reload('$424565', $424565);
+            api.reload('$1105d3', $1105d3);
           }
         }
 
@@ -13106,14 +13106,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $be88d0 = exports.default || module.exports;
+        var $957d1c = exports.default || module.exports;
       
-      if (typeof $be88d0 === 'function') {
-        $be88d0 = $be88d0.options;
+      if (typeof $957d1c === 'function') {
+        $957d1c = $957d1c.options;
       }
     
         /* template */
-        Object.assign($be88d0, (function () {
+        Object.assign($957d1c, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -13132,7 +13132,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-be88d0",
+            _scopeId: "data-v-957d1c",
             functional: undefined
           };
         })());
@@ -13145,9 +13145,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$be88d0', $be88d0);
+            api.createRecord('$957d1c', $957d1c);
           } else {
-            api.reload('$be88d0', $be88d0);
+            api.reload('$957d1c', $957d1c);
           }
         }
 
@@ -13190,14 +13190,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $74f6cd = exports.default || module.exports;
+        var $077f72 = exports.default || module.exports;
       
-      if (typeof $74f6cd === 'function') {
-        $74f6cd = $74f6cd.options;
+      if (typeof $077f72 === 'function') {
+        $077f72 = $077f72.options;
       }
     
         /* template */
-        Object.assign($74f6cd, (function () {
+        Object.assign($077f72, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -13216,7 +13216,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-74f6cd",
+            _scopeId: "data-v-077f72",
             functional: undefined
           };
         })());
@@ -13229,9 +13229,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$74f6cd', $74f6cd);
+            api.createRecord('$077f72', $077f72);
           } else {
-            api.reload('$74f6cd', $74f6cd);
+            api.reload('$077f72', $077f72);
           }
         }
 
@@ -13244,14 +13244,14 @@ render._withStripped = true
     })();
 },{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/header.vue":[function(require,module,exports) {
 
-        var $bfeabe = exports.default || module.exports;
+        var $2a00af = exports.default || module.exports;
       
-      if (typeof $bfeabe === 'function') {
-        $bfeabe = $bfeabe.options;
+      if (typeof $2a00af === 'function') {
+        $2a00af = $2a00af.options;
       }
     
         /* template */
-        Object.assign($bfeabe, (function () {
+        Object.assign($2a00af, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -13265,7 +13265,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-bfeabe",
+            _scopeId: "data-v-2a00af",
             functional: undefined
           };
         })());
@@ -13278,9 +13278,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$bfeabe', $bfeabe);
+            api.createRecord('$2a00af', $2a00af);
           } else {
-            api.reload('$bfeabe', $bfeabe);
+            api.reload('$2a00af', $2a00af);
           }
         }
 
@@ -13314,14 +13314,14 @@ var _default = {
   methods: {}
 };
 exports.default = _default;
-        var $569f6e = exports.default || module.exports;
+        var $110aba = exports.default || module.exports;
       
-      if (typeof $569f6e === 'function') {
-        $569f6e = $569f6e.options;
+      if (typeof $110aba === 'function') {
+        $110aba = $110aba.options;
       }
     
         /* template */
-        Object.assign($569f6e, (function () {
+        Object.assign($110aba, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -13356,7 +13356,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-569f6e",
+            _scopeId: "data-v-110aba",
             functional: undefined
           };
         })());
@@ -13369,9 +13369,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$569f6e', $569f6e);
+            api.createRecord('$110aba', $110aba);
           } else {
-            api.reload('$569f6e', $569f6e);
+            api.reload('$110aba', $110aba);
           }
         }
 
@@ -13384,14 +13384,14 @@ render._withStripped = true
     })();
 },{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/content.vue":[function(require,module,exports) {
 
-        var $40b63b = exports.default || module.exports;
+        var $c73a18 = exports.default || module.exports;
       
-      if (typeof $40b63b === 'function') {
-        $40b63b = $40b63b.options;
+      if (typeof $c73a18 === 'function') {
+        $c73a18 = $c73a18.options;
       }
     
         /* template */
-        Object.assign($40b63b, (function () {
+        Object.assign($c73a18, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -13405,7 +13405,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-40b63b",
+            _scopeId: "data-v-c73a18",
             functional: undefined
           };
         })());
@@ -13418,9 +13418,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$40b63b', $40b63b);
+            api.createRecord('$c73a18', $c73a18);
           } else {
-            api.reload('$40b63b', $40b63b);
+            api.reload('$c73a18', $c73a18);
           }
         }
 
@@ -13433,14 +13433,14 @@ render._withStripped = true
     })();
 },{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/footer.vue":[function(require,module,exports) {
 
-        var $296135 = exports.default || module.exports;
+        var $e68882 = exports.default || module.exports;
       
-      if (typeof $296135 === 'function') {
-        $296135 = $296135.options;
+      if (typeof $e68882 === 'function') {
+        $e68882 = $e68882.options;
       }
     
         /* template */
-        Object.assign($296135, (function () {
+        Object.assign($e68882, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -13454,7 +13454,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-296135",
+            _scopeId: "data-v-e68882",
             functional: undefined
           };
         })());
@@ -13467,9 +13467,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$296135', $296135);
+            api.createRecord('$e68882', $e68882);
           } else {
-            api.reload('$296135', $296135);
+            api.reload('$e68882', $e68882);
           }
         }
 
@@ -13578,14 +13578,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $467bfe = exports.default || module.exports;
+        var $044d89 = exports.default || module.exports;
       
-      if (typeof $467bfe === 'function') {
-        $467bfe = $467bfe.options;
+      if (typeof $044d89 === 'function') {
+        $044d89 = $044d89.options;
       }
     
         /* template */
-        Object.assign($467bfe, (function () {
+        Object.assign($044d89, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -13624,7 +13624,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-467bfe",
+            _scopeId: "data-v-044d89",
             functional: undefined
           };
         })());
@@ -13637,9 +13637,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$467bfe', $467bfe);
+            api.createRecord('$044d89', $044d89);
           } else {
-            api.reload('$467bfe', $467bfe);
+            api.reload('$044d89', $044d89);
           }
         }
 
@@ -13845,14 +13845,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $4c0c50 = exports.default || module.exports;
+        var $70e0ed = exports.default || module.exports;
       
-      if (typeof $4c0c50 === 'function') {
-        $4c0c50 = $4c0c50.options;
+      if (typeof $70e0ed === 'function') {
+        $70e0ed = $70e0ed.options;
       }
     
         /* template */
-        Object.assign($4c0c50, (function () {
+        Object.assign($70e0ed, (function () {
           var render = function() {
   var _obj
   var _vm = this
@@ -13889,7 +13889,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-4c0c50",
+            _scopeId: "data-v-70e0ed",
             functional: undefined
           };
         })());
@@ -13902,9 +13902,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$4c0c50', $4c0c50);
+            api.createRecord('$70e0ed', $70e0ed);
           } else {
-            api.reload('$4c0c50', $4c0c50);
+            api.reload('$70e0ed', $70e0ed);
           }
         }
 
@@ -14945,14 +14945,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $f53570 = exports.default || module.exports;
+        var $8dfcfb = exports.default || module.exports;
       
-      if (typeof $f53570 === 'function') {
-        $f53570 = $f53570.options;
+      if (typeof $8dfcfb === 'function') {
+        $8dfcfb = $8dfcfb.options;
       }
     
         /* template */
-        Object.assign($f53570, (function () {
+        Object.assign($8dfcfb, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -14966,7 +14966,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-f53570",
+            _scopeId: "data-v-8dfcfb",
             functional: undefined
           };
         })());
@@ -14979,9 +14979,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$f53570', $f53570);
+            api.createRecord('$8dfcfb', $8dfcfb);
           } else {
-            api.reload('$f53570', $f53570);
+            api.reload('$8dfcfb', $8dfcfb);
           }
         }
 
@@ -15050,14 +15050,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $a586ed = exports.default || module.exports;
+        var $f41dc3 = exports.default || module.exports;
       
-      if (typeof $a586ed === 'function') {
-        $a586ed = $a586ed.options;
+      if (typeof $f41dc3 === 'function') {
+        $f41dc3 = $f41dc3.options;
       }
     
         /* template */
-        Object.assign($a586ed, (function () {
+        Object.assign($f41dc3, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -15090,7 +15090,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-a586ed",
+            _scopeId: "data-v-f41dc3",
             functional: undefined
           };
         })());
@@ -15103,9 +15103,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$a586ed', $a586ed);
+            api.createRecord('$f41dc3', $f41dc3);
           } else {
-            api.reload('$a586ed', $a586ed);
+            api.reload('$f41dc3', $f41dc3);
           }
         }
 
@@ -15343,7 +15343,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57141" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55748" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
